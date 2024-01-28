@@ -225,11 +225,11 @@ vector\fits N63-CH3CN-12-11-k3-selfcal-res.fits from N63-CH3CN-12-11-k3-selfcal.
 
 
 !! CH3CN 12-11
-read uv N63-LSB-line
+read uv N63-LSB-line-selfcal
 uv_extract /frequency 220670 /width 300 velo
-write uv N63-CH3CN-12-11
+write uv N63-CH3CN-12-11-selfcal
 
-modify N63-CH3CN-12-11.uvt /freq CH3CN-k0-8 220747.2612 !! unit MHz
+modify N63-CH3CN-12-11-selfcal.uvt /freq CH3CN-k0-8 220747.2612 !! unit MHz
 
 !! # Apply selfcal and make deeper clean
 let name N63-CH3CN-12-11-selfcal
