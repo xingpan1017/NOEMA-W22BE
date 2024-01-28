@@ -177,24 +177,29 @@ write uv NW14-CH3CN-12-11-k-6
 modify NW14-CH3CN-12-11-k-6.uvt /freq CH3CN-12-11-k-6 220594.42310 /specunit frequency !! unit MHz
 
 !! CH3CN 12-11 K=4
-read uv NW14-LSB-line
-uv_extract /frequency 220680 /width 40 velo
-write uv NW14-CH3CN-12-11-k-4
+read uv NW14-LSB-line-selfcal
+uv_extract /frequency 220674.53 /width 40 velo
+write uv NW14-CH3CN-12-11-k4-selfcal
 
-modify NW14-CH3CN-12-11-k-4.uvt /freq CH3CN-k4 220679.2869 !! unit MHz
+modify NW14-CH3CN-12-11-k4-selfcal.uvt /freq CH3CN-k4 220679.2869 !! unit MHz
 
 !! # Apply selfcal and make deeper clean
-let name NW14-CH3CN-12-11-k-4-selfcal
-let map_cell 0.05
-let map_size 800
+let name NW14-CH3CN-12-11-k4-selfcal
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
 go uvmap
 
 let niter 500
+let fres 0.0125
+input clean
+
 go clean
 
 !! # export .fits file
-vector\fits NW14-CH3CN-12-11-k-4-selfcal.fits from NW14-CH3CN-12-11-k-4-selfcal.lmv-clean /overwrite
-vector\fits NW14-CH3CN-12-11-k-4-selfcal-res.fits from NW14-CH3CN-12-11-k-4-selfcal.lmv-res /overwrite
+vector\fits NW14-CH3CN-12-11-k4-selfcal.fits from NW14-CH3CN-12-11-k4-selfcal.lmv-clean /overwrite
+vector\fits NW14-CH3CN-12-11-k4-selfcal-res.fits from NW14-CH3CN-12-11-k4-selfcal.lmv-res /overwrite
 
 !! CH3CN 12-11
 read uv NW14-LSB-line
@@ -316,19 +321,24 @@ vector\fits NW14-HC3N-24-23-selfcal-res.fits from NW14-HC3N-24-23-selfcal.lmv-re
 !! Outflow red- and blue-lobe velocity range: blue 7.5~10 km/s red 
 
 !! SiO 5-4
-read uv NW14-LSB-line
-uv_extract /frequency 217109 /width 80 velo
-write uv NW14-SiO-5-4
+read uv NW14-LSB-line-selfcal
+uv_extract /frequency 217099.27 /width 80 velo
+write uv NW14-SiO-5-4-selfcal
 
-modify NW14-SiO-5-4.uvt /freq SiO5-4 217104.919 !! unit MHz
+modify NW14-SiO-5-4-selfcal.uvt /freq SiO5-4 217104.919 !! unit MHz
 
 !! # Apply selfcal and make deeper clean
 let name NW14-SiO-5-4-selfcal
-let map_cell 0.05
-let map_size 800
-!!go uvmap
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
 
-let niter 200
+go uvmap
+
+let niter 500
+let fres 0.0125
+input clean
+
 go clean
 
 !! # export .fits file
@@ -633,7 +643,6 @@ go clean
 !! # export .fits file
 vector\fits NW14-13CS-5-4-selfcal.fits from NW14-13CS-5-4-selfcal.lmv-clean /overwrite
 vector\fits NW14-13CS-5-4-selfcal-res.fits from NW14-13CS-5-4-selfcal.lmv-res /overwrite
-
 
 
 
