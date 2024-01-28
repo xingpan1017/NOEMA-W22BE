@@ -233,6 +233,8 @@ modify N63-CH3CN-12-11-selfcal.uvt /freq CH3CN-k0-8 220747.2612 !! unit MHz
 
 !! # Apply selfcal and make deeper clean
 let name N63-CH3CN-12-11-selfcal
+let map_cell 0.03
+let map_size 800
 let uv_cell 7.5 0.5
 let weight_mode robust
 input uvmap
