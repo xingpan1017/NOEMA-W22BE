@@ -414,6 +414,35 @@ go clean
 vector\fits NW14-H2CO-3-22-2-21-selfcal.fits from NW14-H2CO-3-22-2-21-selfcal.lmv-clean /overwrite
 vector\fits NW14-H2CO-3-22-2-21-selfcal-res.fits from NW14-H2CO-3-22-2-21-selfcal.lmv-res /overwrite
 
+
+!! H2CO 3-2 line total
+read uv NW14-LSB-line-selfcal
+uv_extract /frequency 218471 /width 300 velo
+write uv NW14-H2CO-3-2-selfcal
+
+modify NW14-H2CO-3-2-selfcal.uvt /freq H2CO-3-2 218475.632 !! unit MHz
+
+!! # Apply selfcal and make deeper clean
+let name NW14-H2CO-3-2-selfcal
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 500
+let fres 0.0125
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits NW14-H2CO-3-2-selfcal.fits from NW14-H2CO-3-2-selfcal.lmv-clean /overwrite
+vector\fits NW14-H2CO-3-2-selfcal-res.fits from NW14-H2CO-3-2-selfcal.lmv-res /overwrite
+
+
 !! CH3OH 8-08-7-16
 read uv NW14-LSB-line
 uv_extract /frequency 220080 /width 40 velo
