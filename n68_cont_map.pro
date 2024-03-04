@@ -347,6 +347,37 @@ go clean
 vector\fits N68-H2CO-3-03-2-02-selfcal.fits from N68-H2CO-3-03-2-02-selfcal.lmv-clean /overwrite
 vector\fits N68-H2CO-3-03-2-02-selfcal-res.fits from N68-H2CO-3-03-2-02-selfcal.lmv-res /overwrite
 
+!! H2CO 3-2 line total
+read uv N68-LSB-line-selfcal
+uv_extract /frequency 218350 /width 500 velo
+write uv N68-H2CO-3-2-selfcal
+
+modify N68-H2CO-3-2-selfcal.uvt /freq H2CO-3-2 218475.632 !! unit MHz
+
+!! # Apply selfcal and make deeper clean
+let name N68-H2CO-3-2-selfcal
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 500
+let fres 0.0125
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits N68-H2CO-3-2-selfcal.fits from N68-H2CO-3-2-selfcal.lmv-clean /overwrite
+vector\fits N68-H2CO-3-2-selfcal-res.fits from N68-H2CO-3-2-selfcal.lmv-res /overwrite
+
+
+
+
+
 !! DCN 3-2
 read uv N68-LSB-line-selfcal
 uv_extract /frequency 217243.35 /width 40 velo
