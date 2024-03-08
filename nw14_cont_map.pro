@@ -231,14 +231,14 @@ vector\fits NW14-CH3CN-12-11-selfcal-res.fits from NW14-CH3CN-12-11-selfcal.lmv-
 
 
 !! CH3CN 12-11 K=3
-read uv N63-LSB-line
+read uv NW14-LSB-line
 uv_extract /frequency 220712 /width 40 velo
-write uv N63-CH3CN-12-11-k3
+write uv NW14-CH3CN-12-11-k3
 
-modify N63-CH3CN-12-11-k3.uvt /freq CH3CN-k3 220709.0165 !! unit MHz
+modify NW14-CH3CN-12-11-k3.uvt /freq CH3CN-k3 220709.0165 !! unit MHz
 
 !! # Apply selfcal and make deeper clean
-let name N63-CH3CN-12-11-k3-selfcal
+let name NW14-CH3CN-12-11-k3-selfcal
 let map_cell 0.05
 let map_size 600
 go uvmap
@@ -417,7 +417,7 @@ vector\fits NW14-H2CO-3-22-2-21-selfcal-res.fits from NW14-H2CO-3-22-2-21-selfca
 
 !! H2CO 3-2 line total
 read uv NW14-LSB-line-selfcal
-uv_extract /frequency 218350 /width 500 velo
+uv_extract /frequency 218450 /width 1000 velo
 write uv NW14-H2CO-3-2-selfcal
 
 modify NW14-H2CO-3-2-selfcal.uvt /freq H2CO-3-2 218475.632 !! unit MHz
@@ -425,7 +425,7 @@ modify NW14-H2CO-3-2-selfcal.uvt /freq H2CO-3-2 218475.632 !! unit MHz
 !! # Apply selfcal and make deeper clean
 let name NW14-H2CO-3-2-selfcal
 let map_cell 0.03
-let map_size 800
+let map_size 600
 let uv_cell 7.5 0.5
 let weight_mode robust
 input uvmap
