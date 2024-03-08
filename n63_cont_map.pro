@@ -344,7 +344,7 @@ vector\fits N63-H2CO-3-03-2-02-selfcal-res.fits from N63-H2CO-3-03-2-02-selfcal.
 
 !! H2CO 3-2 line total
 read uv N63-LSB-line-selfcal
-uv_extract /frequency 218350 /width 500 velo
+uv_extract /frequency 218450 /width 1000 velo
 write uv N63-H2CO-3-2-selfcal
 
 modify N63-H2CO-3-2-selfcal.uvt /freq H2CO-3-2 218475.632 !! unit MHz
@@ -352,7 +352,7 @@ modify N63-H2CO-3-2-selfcal.uvt /freq H2CO-3-2 218475.632 !! unit MHz
 !! # Apply selfcal and make deeper clean
 let name N63-H2CO-3-2-selfcal
 let map_cell 0.03
-let map_size 800
+let map_size 600
 let uv_cell 7.5 0.5
 let weight_mode robust
 input uvmap
