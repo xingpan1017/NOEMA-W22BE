@@ -464,7 +464,7 @@ vector\fits N30-H2CO-3-22-2-21-selfcal-res.fits from N30-H2CO-3-22-2-21-selfcal.
 
 !! H2CO 3-2 total
 read uv N30-LSB-line-selfcal
-uv_extract /frequency 218450 /width 800 velo
+uv_extract /frequency 218450 /width 900 velo
 write uv N30-H2CO-3-2-selfcal
 
 modify N30-H2CO-3-2-selfcal.uvt /freq H2CO 218475.632 !! unit MHz
