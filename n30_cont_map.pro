@@ -490,15 +490,15 @@ vector\fits N30-H2CO-3-2-selfcal.fits from N30-H2CO-3-2-selfcal.lmv-clean /overw
 vector\fits N30-H2CO-3-2-selfcal-res.fits from N30-H2CO-3-2-selfcal.lmv-res /overwrite
 
 
-!! CH3OCHO 17-16
+!! CH3OCHO 17-16 E
 read uv N30-LSB-line-selfcal
 uv_extract /frequency 218274.5 /width 50 velo
-write uv N30-CH3OCHO-17-3-14-16-3-13-selfcal
+write uv N30-CH3OCHO-17-3-14-16-3-13E-selfcal
 
-modify N30-CH3OCHO-17-3-14-16-3-13-selfcal.uvt /freq CH3OCHO17-16 	218280.9 !! unit MHz
+modify N30-CH3OCHO-17-3-14-16-3-13E-selfcal.uvt /freq CH3OCHO17-16E 	218280.9 !! unit MHz
 
 !! # Apply selfcal and make deeper clean
-let name N30-CH3OCHO-17-3-14-16-3-13-selfcal
+let name N30-CH3OCHO-17-3-14-16-3-13E-selfcal
 let map_cell 0.03
 let map_size 800
 let uv_cell 7.5 0.5
@@ -514,9 +514,118 @@ input clean
 go clean
 
 !! # export .fits file
-vector\fits N30-CH3OCHO-17-3-14-16-3-13-selfcal.fits from N30-CH3OCHO-17-3-14-16-3-13-selfcal.lmv-clean /overwrite
-vector\fits N30-CH3OCHO-17-3-14-16-3-13-selfcal-res.fits from N30-CH3OCHO-17-3-14-16-3-13-selfcal.lmv-res /overwrite
+vector\fits N30-CH3OCHO-17-3-14-16-3-13E-selfcal.fits from N30-CH3OCHO-17-3-14-16-3-13E-selfcal.lmv-clean /overwrite
+vector\fits N30-CH3OCHO-17-3-14-16-3-13E-selfcal-res.fits from N30-CH3OCHO-17-3-14-16-3-13E-selfcal.lmv-res /overwrite
 
+!! CH3OCHO 17-16 A
+read uv N30-LSB-line-selfcal
+uv_extract /frequency 218291.5 /width 50 velo
+write uv N30-CH3OCHO-17-3-14-16-3-13A-selfcal
+
+modify N30-CH3OCHO-17-3-14-16-3-13A-selfcal.uvt /freq CH3OCHO  218297.866 !! unit MHz
+
+!! # Apply selfcal and make deeper clean
+let name N30-CH3OCHO-17-3-14-16-3-13A-selfcal
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 500
+let fres 0.0125
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits N30-CH3OCHO-17-3-14-16-3-13A-selfcal.fits from N30-CH3OCHO-17-3-14-16-3-13A-selfcal.lmv-clean /overwrite
+vector\fits N30-CH3OCHO-17-3-14-16-3-13A-selfcal-res.fits from N30-CH3OCHO-17-3-14-16-3-13A-selfcal.lmv-res /overwrite
+
+!! NH2CHO
+read uv N30-LSB-line-selfcal
+uv_extract /frequency 218453.7 /width 50 velo
+write uv N30-NH2CHO-10-9-selfcal
+
+modify N30-NH2CHO-10-9-selfcal.uvt /freq NH2CHO 218459.205 !! unit MHz
+
+!! # Apply selfcal and make deeper clean
+let name N30-NH2CHO-10-9-selfcal
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 500
+let fres 0.0125
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits N30-NH2CHO-10-9-selfcal.fits from N30-NH2CHO-10-9-selfcal.lmv-clean /overwrite
+vector\fits N30-NH2CHO-10-9-selfcal-res.fits from N30-NH2CHO-10-9-selfcal.lmv-res /overwrite
+
+
+!! CH3CH2CHO 38-38
+read uv N30-LSB-line-selfcal
+uv_extract /frequency 218678.5 /width 50 velo
+write uv N30-CH3CH2CHO-38-9-38-7-selfcal
+
+modify N30-CH3CH2CHO-38-9-38-7-selfcal.uvt /freq CH3CH2CHO 218684.432 !! unit MHz
+
+!! # Apply selfcal and make deeper clean
+let name N30-CH3CH2CHO-38-9-38-7-selfcal
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 500
+let fres 0.0125
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits N30-CH3CH2CHO-38-9-38-7-selfcal.fits from N30-CH3CH2CHO-38-9-38-7-selfcal.lmv-clean /overwrite
+vector\fits N30-CH3CH2CHO-38-9-38-7-selfcal-res.fits from N30-CH3CH2CHO-38-9-38-7-selfcal.lmv-res /overwrite
+
+
+!! CH213CHCN 23-22
+read uv N30-LSB-line-selfcal
+uv_extract /frequency 218319.0 /width 50 velo
+write uv N30-CH213CHCN-23-3-22-3-selfcal
+
+modify N30-CH213CHCN-23-3-22-3-selfcal.uvt /freq CH3CH2CHO 218325.5366 !! unit MHz
+
+!! # Apply selfcal and make deeper clean
+let name N30-CH213CHCN-23-3-22-3-selfcal
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 500
+let fres 0.0125
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits N30-CH213CHCN-23-3-22-3-selfcal.fits from N30-CH213CHCN-23-3-22-3-selfcal.lmv-clean /overwrite
+vector\fits N30-CH213CHCN-23-3-22-3-selfcal-res.fits from N30-CH213CHCN-23-3-22-3-selfcal.lmv-res /overwrite
 
 
 
