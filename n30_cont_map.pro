@@ -464,7 +464,7 @@ vector\fits N30-H2CO-3-22-2-21-selfcal-res.fits from N30-H2CO-3-22-2-21-selfcal.
 
 !! H2CO 3-2 total
 read uv N30-LSB-line-selfcal
-uv_extract /frequency 218450 /width 900 velo
+uv_extract /frequency 218450 /width 1000 velo
 write uv N30-H2CO-3-2-selfcal
 
 modify N30-H2CO-3-2-selfcal.uvt /freq H2CO 218475.632 !! unit MHz
@@ -488,6 +488,35 @@ go clean
 !! # export .fits file
 vector\fits N30-H2CO-3-2-selfcal.fits from N30-H2CO-3-2-selfcal.lmv-clean /overwrite
 vector\fits N30-H2CO-3-2-selfcal-res.fits from N30-H2CO-3-2-selfcal.lmv-res /overwrite
+
+
+!! CH3OCHO 17-16
+read uv N30-LSB-line-selfcal
+uv_extract /frequency 218274.5 /width 50 velo
+write uv N30-CH3OCHO-17-3-14-16-3-13-selfcal
+
+modify N30-CH3OCHO-17-3-14-16-3-13-selfcal.uvt /freq CH3OCHO17-16 	218280.9 !! unit MHz
+
+!! # Apply selfcal and make deeper clean
+let name N30-CH3OCHO-17-3-14-16-3-13-selfcal
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 500
+let fres 0.0125
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits N30-CH3OCHO-17-3-14-16-3-13-selfcal.fits from N30-CH3OCHO-17-3-14-16-3-13-selfcal.lmv-clean /overwrite
+vector\fits N30-CH3OCHO-17-3-14-16-3-13-selfcal-res.fits from N30-CH3OCHO-17-3-14-16-3-13-selfcal.lmv-res /overwrite
+
 
 
 
