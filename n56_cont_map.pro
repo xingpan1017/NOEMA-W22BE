@@ -195,23 +195,52 @@ vector\fits N56-CH3CN-12-11-k-4-selfcal-res.fits from N56-CH3CN-12-11-k-4-selfca
 
 
 !! CH3CN 12-11 K=3
-read uv N56-LSB-line
-uv_extract /frequency 220712 /width 40 velo
-write uv N56-CH3CN-12-11-k3
+read uv N56-LSB-line-selfcal
+uv_extract /frequency 220693.2 /width 50 velo
+write uv N56-CH3CN-12-11-k3-selfcal
 
-modify N56-CH3CN-12-11-k3.uvt /freq CH3CN-k3 220709.0165 !! unit MHz
+modify N56-CH3CN-12-11-k3-selfcal.uvt /freq CH3CN-k3 220709.0165 !! unit MHz
 
 !! # Apply selfcal and make deeper clean
 let name N56-CH3CN-12-11-k3-selfcal
-let map_cell 0.05
-let map_size 600
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
 go uvmap
 
 let niter 500
+let fres 0.0125
+input clean
+
 go clean
 !! # export .fits file
 vector\fits N56-CH3CN-12-11-k3-selfcal.fits from N56-CH3CN-12-11-k3-selfcal.lmv-clean /overwrite
 vector\fits N56-CH3CN-12-11-k3-selfcal-res.fits from N56-CH3CN-12-11-k3-selfcal.lmv-res /overwrite
+
+!! CH3CN 12-11 total
+read uv N56-LSB-line-selfcal
+uv_extract /frequency 220660 /width 300 velo
+write uv N56-CH3CN-12-11-selfcal
+
+modify N56-CH3CN-12-11-selfcal.uvt /freq CH3CN-k3 220709.0165 !! unit MHz
+
+!! # Apply selfcal and make deeper clean
+let name N56-CH3CN-12-11-selfcal
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 500
+let fres 0.0125
+input clean
+
+go clean
+!! # export .fits file
+vector\fits N56-CH3CN-12-11-selfcal.fits from N56-CH3CN-12-11-selfcal.lmv-clean /overwrite
+vector\fits N56-CH3CN-12-11-selfcal-res.fits from N56-CH3CN-12-11-selfcal.lmv-res /overwrite
 
 
 !! CH3OH 4(2,2)-3(1,2)
@@ -354,6 +383,32 @@ go clean
 vector\fits N56-H2CO-3-2-selfcal.fits from N56-H2CO-3-2-selfcal.lmv-clean /overwrite
 vector\fits N56-H2CO-3-2-selfcal-res.fits from N56-H2CO-3-2-selfcal.lmv-res /overwrite
 
+!! CH3O13CHO 9-5-9-3
+read uv N56-LSB-line-selfcal
+uv_extract /frequency 218309.2 /width 50 velo
+write uv N56-CH3O13CHO-9-5-9-3-selfcal
+
+modify N56-CH3O13CHO-9-5-9-3-selfcal.uvt /freq CH3O13CHO 218323.894 !! unit MHz
+
+!! # Apply selfcal and make deeper clean
+let name N56-CH3O13CHO-9-5-9-3-selfcal
+let map_cell 0.03
+let map_size 600
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 500
+let fres 0.0125
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits N56-CH3O13CHO-9-5-9-3-selfcal.fits from N56-CH3O13CHO-9-5-9-3-selfcal.lmv-clean /overwrite
+vector\fits N56-CH3O13CHO-9-5-9-3-selfcal-res.fits from N56-CH3O13CHO-9-5-9-3-selfcal.lmv-res /overwrite
 
 
 
@@ -413,6 +468,9 @@ modify N56-DCN-3-2-selfcal.uvt /freq DCN-3-2 217238.6307 !! unit MHz
 !! # Apply selfcal and make deeper clean
 let name N56-DCN-3-2-selfcal
 let uv_cell 7.5 0.5
+let map_cell 0.03
+let map_size 600
+
 let weight_mode robust
 input uvmap
 
@@ -525,19 +583,27 @@ uv_base 0 /frequency 237269 237106 235720 229371 229237 /width 20 velo !! set 10
 write uv N56-USB-line
 
 !! CO 2-1
-read uv N56-USB-line
-uv_extract /frequency 230535 /width 100 velo
-write uv N56-CO-2-1
+read uv N56-USB-line-selfcal
+uv_extract /frequency 230524.7 /width 100 velo
+write uv N56-CO-2-1-selfcal
 
-modify N56-CO-2-1.uvt /freq CO2-1 230538.0 !! unit MHz
+modify N56-CO-2-1-selfcal.uvt /freq CO2-1 230538 !! unit MHz
 !! # Apply selfcal and make deeper clean
 let name N56-CO-2-1-selfcal
-let map_cell 0.05
-let map_size 800
+let map_cell 0.03
+let map_size 1000
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
 go uvmap
 
 let niter 500
+let fres 0.0125
+input clean
+
 go clean
+
 !! # export .fits file
 vector\fits N56-CO-2-1-selfcal.fits from N56-CO-2-1-selfcal.lmv-clean /overwrite
 vector\fits N56-CO-2-1-selfcal-res.fits from N56-CO-2-1-selfcal.lmv-res /overwrite
