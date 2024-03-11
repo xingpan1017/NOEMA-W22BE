@@ -314,25 +314,32 @@ vector\fits N56-C18O-2-1-selfcal-res.fits from N56-C18O-2-1-selfcal.lmv-res /ove
 !! Outflow red- and blue-lobe velocity range: blue 7.5~10 km/s red 
 
 !! SiO 5-4
-read uv N56-LSB-line
-uv_extract /frequency 217102 /width 80 velo
-write uv N56-SiO-5-4
+read uv N56-LSB-line-selfcal
+uv_extract /frequency 217090.2 /width 120 velo
+write uv N56-SiO-5-4-selfcal
 
-modify N56-SiO-5-4.uvt /freq SiO5-4 217104.919 !! unit MHz
+modify N56-SiO-5-4-selfcal.uvt /freq SiO 217104.919 !! unit MHz
 
 !! # Apply selfcal and make deeper clean
 let name N56-SiO-5-4-selfcal
-let map_cell 0.05
-let map_size 800
+let map_cell 0.03
+let map_size 1000
+let uv_cell 7.5 3.0
+let weight_mode robust
+input uvmap
+
 go uvmap
 
-let niter 200
+let niter 500
+let fres 0.0125
+input clean
+
 go clean
+
 
 !! # export .fits file
 vector\fits N56-SiO-5-4-selfcal.fits from N56-SiO-5-4-selfcal.lmv-clean /overwrite
 vector\fits N56-SiO-5-4-selfcal-res.fits from N56-SiO-5-4-selfcal.lmv-res /overwrite
-
 
 !! H2CO 3-2
 read uv N56-LSB-line
@@ -584,7 +591,7 @@ write uv N56-USB-line
 
 !! CO 2-1
 read uv N56-USB-line-selfcal
-uv_extract /frequency 230524.7 /width 100 velo
+uv_extract /frequency 230524.7 /width 120 velo
 write uv N56-CO-2-1-selfcal
 
 modify N56-CO-2-1-selfcal.uvt /freq CO2-1 230538 !! unit MHz
@@ -592,7 +599,7 @@ modify N56-CO-2-1-selfcal.uvt /freq CO2-1 230538 !! unit MHz
 let name N56-CO-2-1-selfcal
 let map_cell 0.03
 let map_size 1000
-let uv_cell 7.5 0.5
+let uv_cell 7.5 3.0
 let weight_mode robust
 input uvmap
 
