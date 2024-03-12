@@ -186,7 +186,7 @@ modify NW14-CH3CN-12-11-k4-selfcal.uvt /freq CH3CN-k4 220679.2869 !! unit MHz
 !! # Apply selfcal and make deeper clean
 let name NW14-CH3CN-12-11-k4-selfcal
 let map_cell 0.03
-let map_size 2048
+let map_size 600
 let uv_cell 7.5 0.5
 let weight_mode robust
 input uvmap
@@ -202,6 +202,34 @@ go clean
 !! # export .fits file
 vector\fits NW14-CH3CN-12-11-k4-selfcal.fits from NW14-CH3CN-12-11-k4-selfcal.lmv-clean /overwrite
 vector\fits NW14-CH3CN-12-11-k4-selfcal-res.fits from NW14-CH3CN-12-11-k4-selfcal.lmv-res /overwrite
+
+!! CH3CN 12-11 K=3
+read uv NW14-LSB-line-selfcal
+uv_extract /frequency 220705 /width 50 velo
+write uv NW14-CH3CN-12-11-k3-selfcal
+
+modify NW14-CH3CN-12-11-k3-selfcal.uvt /freq CH3CN 220709.0165 !! unit MHz
+
+!! # Apply selfcal and make deeper clean
+let name NW14-CH3CN-12-11-k3-selfcal
+let map_cell 0.03
+let map_size 600
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 500
+let fres 0.0125
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits NW14-CH3CN-12-11-k3-selfcal.fits from NW14-CH3CN-12-11-k3-selfcal.lmv-clean /overwrite
+vector\fits NW14-CH3CN-12-11-k3-selfcal-res.fits from NW14-CH3CN-12-11-k3-selfcal.lmv-res /overwrite
+
 
 !! CH3CN 12-11
 read uv NW14-LSB-line-selfcal
