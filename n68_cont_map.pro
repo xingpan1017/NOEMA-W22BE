@@ -280,32 +280,17 @@ vector\fits N68-C18O-2-1-selfcal-res.fits from N68-C18O-2-1-selfcal.lmv-res /ove
 
 !! SiO 5-4
 read uv N68-LSB-line-selfcal
-uv_extract /frequency 217110 /width 80 velo
+uv_extract /frequency 217110 /width 120 velo
 write uv N68-SiO-5-4-selfcal
 
 modify N68-SiO-5-4-selfcal.uvt /freq SiO5-4 217104.919 !! unit MHz
 
 !! # Apply selfcal and make deeper clean
 let name N68-SiO-5-4-selfcal
-let uv_cell 7.5 0.5
-let weight_mode robust
-let map_size 1600
-input uvmap
-
-go uvmap
-
-let niter 500
-let fres 0.0125
-input clean
-go clean
-
-!! Apply selfcal and make deeper clean
-!! Apply another robust value
- 
-let name N68-SiO-5-4-selfcal
+let map_cell 0.03
+let map_size 800
 let uv_cell 7.5 3.0
 let weight_mode robust
-let map_size 1600
 input uvmap
 
 go uvmap
@@ -313,12 +298,12 @@ go uvmap
 let niter 500
 let fres 0.0125
 input clean
+
 go clean
 
-
 !! # export .fits file
-vector\fits N68-SiO-5-4-selfcal-rob3.fits from N68-SiO-5-4-selfcal.lmv-clean /overwrite
-vector\fits N68-SiO-5-4-selfcal-res-rob3.fits from N68-SiO-5-4-selfcal.lmv-res /overwrite
+vector\fits N68-SiO-5-4-selfcal.fits from N68-SiO-5-4-selfcal.lmv-clean /overwrite
+vector\fits N68-SiO-5-4-selfcal-res.fits from N68-SiO-5-4-selfcal.lmv-res /overwrite
 
 
 !! H2CO 3-2
@@ -434,9 +419,10 @@ vector\fits N68-CH3OH-8-08-7-16-selfcal-res.fits from N68-CH3OH-8-08-7-16-selfca
 
 !! # Apply selfcal and make deeper clean
 let name N68-CH3OH-8-08-7-16-selfcal
+let map_cell 0.03
+let map_size 600
 let uv_cell 7.5 3.0
 let weight_mode robust
-let map_size 1600
 input uvmap
 
 go uvmap
@@ -446,6 +432,7 @@ let fres 0.0125
 input clean
 
 go clean
+
 
 !! # export .fits file
 
@@ -599,18 +586,25 @@ uv_base 0 /frequency 237115 236013 229776 229376 /width 20 velo !! set 100 km/s 
 write uv N68-USB-line
 
 !! CO 2-1
-read uv N68-USB-line
-uv_extract /frequency 230540 /width 80 velo
-write uv N68-CO-2-1
+read uv N68-USB-line-selfcal
+uv_extract /frequency 230540 /width 120 velo
+write uv N68-CO-2-1-selfcal
 
-modify N68-CO-2-1.uvt /freq CO2-1 230538.0 !! unit MHz
+modify N68-CO-2-1-selfcal.uvt /freq CO2-1 230538.0 !! unit MHz
 !! # Apply selfcal and make deeper clean
 let name N68-CO-2-1-selfcal
-let map_cell 0.05
-let map_size 800
+let map_cell 0.03
+let map_size 600
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
 go uvmap
 
-let niter 200
+let niter 500
+let fres 0.0125
+input clean
+
 go clean
 !! # export .fits file
 vector\fits N68-CO-2-1-selfcal.fits from N68-CO-2-1-selfcal.lmv-clean /overwrite
@@ -652,7 +646,30 @@ go clean
 vector\fits N68-N2D+-3-2-selfcal.fits from N68-N2D+-3-2-selfcal.lmv-clean /overwrite
 vector\fits N68-N2D+-3-2-selfcal-res.fits from N68-N2D+-3-2-selfcal.lmv-res /overwrite
 
+!! 13CS  5-4
+read uv N68-USB-line-selfcal
+uv_extract /frequency 231226.6 /width 50 velo
+write uv N68-13CS-5-4-selfcal
 
+modify N68-13CS-5-4-selfcal.uvt /freq 13CS 231220.67 !! unit MHz
+!! # Apply selfcal and make deeper clean
+let name N68-13CS-5-4-selfcal
+let map_cell 0.03
+let map_size 600
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 500
+let fres 0.0125
+input clean
+
+go clean
+!! # export .fits file
+vector\fits N68-13CS-5-4-selfcal.fits from N68-13CS-5-4-selfcal.lmv-clean /overwrite
+vector\fits N68-13CS-5-4-selfcal-res.fits from N68-13CS-5-4-selfcal.lmv-res /overwrite
 
 
 
