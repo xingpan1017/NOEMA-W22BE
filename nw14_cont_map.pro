@@ -330,14 +330,16 @@ vector\fits NW14-HC3N-24-23-selfcal-res.fits from NW14-HC3N-24-23-selfcal.lmv-re
 
 !! SiO 5-4
 read uv NW14-LSB-line-selfcal
-uv_extract /frequency 217099.27 /width 80 velo
+uv_extract /frequency 217099.27 /width 120 velo
 write uv NW14-SiO-5-4-selfcal
 
-modify NW14-SiO-5-4-selfcal.uvt /freq SiO5-4 217104.919 !! unit MHz
+modify NW14-SiO-5-4-selfcal.uvt /freq SiO 217104.919 !! unit MHz
 
 !! # Apply selfcal and make deeper clean
 let name NW14-SiO-5-4-selfcal
-let uv_cell 7.5 0.5
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 3.0
 let weight_mode robust
 input uvmap
 
@@ -592,18 +594,25 @@ uv_base 0 /frequency 237120 236932 236727 236529 236363 236220 235999 235371 235
 write uv NW14-USB-line
 
 !! CO 2-1
-read uv NW14-USB-line
-uv_extract /frequency 230538 /width 100 velo
-write uv NW14-CO-2-1
+read uv NW14-USB-line-selfcal
+uv_extract /frequency 230535.53 /width 180 velo
+write uv NW14-CO-2-1-selfcal
 
-modify NW14-CO-2-1.uvt /freq CO2-1 230538.0 !! unit MHz
+modify NW14-CO-2-1-selfcal.uvt /freq CO 230538.0 !! unit MHz
 !! # Apply selfcal and make deeper clean
 let name NW14-CO-2-1-selfcal
-let map_cell 0.05
+let map_cell 0.03
 let map_size 800
-!go uvmap
+let uv_cell 7.5 3.0
+let weight_mode robust
+input uvmap
+
+go uvmap
 
 let niter 500
+let fres 0.0125
+input clean
+
 go clean
 !! # export .fits file
 vector\fits NW14-CO-2-1-selfcal.fits from NW14-CO-2-1-selfcal.lmv-clean /overwrite
