@@ -777,12 +777,14 @@ write uv N30-USB-line
 
 !! CO 2-1
 read uv N30-USB-line-selfcal
-uv_extract /frequency 230538 /width 100 velo
+uv_extract /frequency 230538 /width 120 velo
 write uv N30-CO-2-1-selfcal
 
 modify N30-CO-2-1-selfcal.uvt /freq CO2-1 230538.0 !! unit MHz
 !! # Apply selfcal and make deeper clean
 let name N30-CO-2-1-selfcal
+let map_cell 0.03
+let map_size 1000
 let uv_cell 7.5 3.0
 let weight_mode robust
 input uvmap
@@ -794,9 +796,10 @@ let fres 0.0125
 input clean
 
 go clean
+
 !! # export .fits file
-vector\fits N30-CO-2-1-selfcal-rob3.fits from N30-CO-2-1-selfcal.lmv-clean /overwrite
-vector\fits N30-CO-2-1-selfcal-rob3-res.fits from N30-CO-2-1-selfcal.lmv-res /overwrite
+vector\fits N30-CO-2-1-selfcal.fits from N30-CO-2-1-selfcal.lmv-clean /overwrite
+vector\fits N30-CO-2-1-selfcal-res.fits from N30-CO-2-1-selfcal.lmv-res /overwrite
 
 !! CH3OH 8--1-7-0
 read uv N30-USB-line
