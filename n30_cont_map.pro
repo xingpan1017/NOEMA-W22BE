@@ -326,19 +326,27 @@ vector\fits N30-C18O-2-1-selfcal-res.fits from N30-C18O-2-1-selfcal.lmv-res /ove
 
 
 !! DCN 3-2
-read uv N30-LSB-line
-uv_extract /frequency 217234.14 /width 40 velo
-write uv N30-DCN-3-2
+read uv N30-LSB-line-selfcal
+uv_extract /frequency 217234.14 /width 50 velo
+write uv N30-DCN-3-2-selfcal
 
-modify N30-DCN-3-2.uvt /freq DCN3-2 217238.6307 !! unit MHz
+modify N30-DCN-3-2-selfcal.uvt /freq DCN3-2 217238.6307 !! unit MHz
 !! # Apply selfcal and make deeper clean
 let name N30-DCN-3-2-selfcal
-let map_cell 0.05
-let map_size 800
-!!go uvmap
+let map_cell 0.03
+let map_size 1000
+let uv_cell 7.5 3.0
+let weight_mode robust
+input uvmap
 
-let niter 200
+go uvmap
+
+let niter 500
+let fres 0.0125
+input clean
+
 go clean
+
 !! # export .fits file
 vector\fits N30-DCN-3-2-selfcal.fits from N30-DCN-3-2-selfcal.lmv-clean /overwrite
 vector\fits N30-DCN-3-2-selfcal-res.fits from N30-DCN-3-2-selfcal.lmv-res /overwrite
@@ -675,23 +683,29 @@ vector\fits N30-SO-6-5-selfcal.fits from N30-SO-6-5-selfcal.lmv-clean /overwrite
 vector\fits N30-SO-6-5-selfcal-res.fits from N30-SO-6-5-selfcal.lmv-res /overwrite
 
 !! DCO+ 3-2
-read uv N30-LSB-line
-uv_extract /frequency 216110 /width 40 velo
-write uv N30-DCO+-3-2
+read uv N30-LSB-line-selfcal
+uv_extract /frequency 216110 /width 50 velo
+write uv N30-DCO+-3-2-selfcal
 
-modify N30-DCO+-3-2.uvt /freq DCO+ 216112.58 !! unit MHz
+modify N30-DCO+-3-2-selfcal.uvt /freq DCO+ 216112.58 !! unit MHz
 !! # Apply selfcal and make deeper clean
 let name N30-DCO+-3-2-selfcal
-let map_cell 0.05
+let map_cell 0.03
 let map_size 800
-!!go uvmap
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
 
-let niter 200
+go uvmap
+
+let niter 500
+let fres 0.0125
+input clean
+
 go clean
 !! # export .fits file
 vector\fits N30-DCO+-3-2-selfcal.fits from N30-DCO+-3-2-selfcal.lmv-clean /overwrite
 vector\fits N30-DCO+-3-2-selfcal-res.fits from N30-DCO+-3-2-selfcal.lmv-res /overwrite
-
 
 
 #######################################################################################################
