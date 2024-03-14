@@ -317,19 +317,24 @@ vector\fits NW14-C18O-2-1-selfcal-res.fits from NW14-C18O-2-1-selfcal.lmv-res /o
 
 !! DCN 3-2
 read uv NW14-LSB-line
-uv_extract /frequency 217234.14 /width 40 velo
-write uv NW14-DCN-3-2
+uv_extract /frequency 217234.14 /width 50 velo
+write uv NW14-DCN-3-2-selfcal
 
-modify NW14-DCN-3-2.uvt /freq DCN3-2 217238.6307 !! unit MHz
+modify NW14-DCN-3-2-selfcal.uvt /freq DCN3-2 217238.6307 !! unit MHz
 !! # Apply selfcal and make deeper clean
 let name NW14-DCN-3-2-selfcal
-let map_cell 0.05
 let map_size 800
-!!go uvmap
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
 
-let niter 200
-go clean
-!! # export .fits file
+go uvmap
+
+let niter 500
+let fres 0.0125
+input clean
+
+go clean!! # export .fits file
 vector\fits NW14-DCN-3-2-selfcal.fits from NW14-DCN-3-2-selfcal.lmv-clean /overwrite
 vector\fits NW14-DCN-3-2-selfcal-res.fits from NW14-DCN-3-2-selfcal.lmv-res /overwrite
 
@@ -546,18 +551,24 @@ vector\fits NW14-SO-6-5-selfcal.fits from NW14-SO-6-5-selfcal.lmv-clean /overwri
 vector\fits NW14-SO-6-5-selfcal-res.fits from NW14-SO-6-5-selfcal.lmv-res /overwrite
 
 !! DCO+ 3-2
-read uv NW14-LSB-line
+read uv NW14-LSB-line-selfcal
 uv_extract /frequency 216110 /width 40 velo
-write uv NW14-DCO+-3-2
+write uv NW14-DCO+-3-2-selfcal
 
-modify NW14-DCO+-3-2.uvt /freq DCO+ 216112.58 !! unit MHz
+modify NW14-DCO+-3-2-selfcal.uvt /freq DCO+ 216112.58 !! unit MHz
 !! # Apply selfcal and make deeper clean
 let name NW14-DCO+-3-2-selfcal
-let map_cell 0.05
 let map_size 800
-!!go uvmap
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
 
-let niter 200
+go uvmap
+
+let niter 500
+let fres 0.0125
+input clean
+
 go clean
 !! # export .fits file
 vector\fits NW14-DCO+-3-2-selfcal.fits from NW14-DCO+-3-2-selfcal.lmv-clean /overwrite
@@ -695,16 +706,23 @@ vector\fits NW14-CH3OH-8--1-7-0-selfcal-res.fits from NW14-CH3OH-8--1-7-0-selfca
 !! D2CO 4-3
 read uv NW14-USB-line
 uv_extract /frequency 229755 /width 60 velo
-write uv NW14-D2CO-4-04-3-03
+write uv NW14-D2CO-4-04-3-03-selfcal
 
-modify NW14-D2CO-4-04-3-03.uvt /freq D2CO4-3 229758.756 !! unit MHz
+modify NW14-D2CO-4-04-3-03-selfcal.uvt /freq D2CO4-3 229758.756 !! unit MHz
 !! # Apply selfcal and make deeper clean
 let name NW14-D2CO-4-04-3-03-selfcal
-let map_cell 0.05
+let map_cell 0.03
 let map_size 800
-!!go uvmap
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
 
-let niter 200
+go uvmap
+
+let niter 500
+let fres 0.0125
+input clean
+
 go clean
 !! # export .fits file
 vector\fits NW14-D2CO-4-04-3-03-selfcal.fits from NW14-D2CO-4-04-3-03-selfcal.lmv-clean /overwrite
@@ -713,17 +731,25 @@ vector\fits NW14-D2CO-4-04-3-03-selfcal-res.fits from NW14-D2CO-4-04-3-03-selfca
 !! DNC 3-2
 read uv NW14-USB-line
 uv_extract /frequency 228907 /width 40 velo
-write uv NW14-DNC-3-2
+write uv NW14-DNC-3-2-selfcal
 
-modify NW14-DNC-3-2.uvt /freq DNC3-2 228910.489 !! unit MHz
+modify NW14-DNC-3-2-selfcal.uvt /freq DNC3-2 228910.489 !! unit MHz
 !! # Apply selfcal and make deeper clean
 let name NW14-DNC-3-2-selfcal
-let map_cell 0.05
-let map_size 600
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
 go uvmap
 
-let niter 200
+let niter 500
+let fres 0.0125
+input clean
+
 go clean
+
 !! # export .fits file
 vector\fits NW14-DNC-3-2-selfcal.fits from NW14-DNC-3-2-selfcal.lmv-clean /overwrite
 vector\fits NW14-DNC-3-2-selfcal-res.fits from NW14-DNC-3-2-selfcal.lmv-res /overwrite
@@ -747,7 +773,31 @@ vector\fits NW14-13CS-5-4-selfcal.fits from NW14-13CS-5-4-selfcal.lmv-clean /ove
 vector\fits NW14-13CS-5-4-selfcal-res.fits from NW14-13CS-5-4-selfcal.lmv-res /overwrite
 
 
+!! N2D+ 3-2
+read uv NW14-USB-line
+uv_extract /frequency 231315 /width 50 velo
+write uv NW14-N2D+-3-2-selfcal
 
+modify NW14-N2D+-3-2-selfcal.uvt /freq N2D+ 231321.6650 !! unit MHz
+!! # Apply selfcal and make deeper clean
+let name NW14-N2D+-3-2-selfcal
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 500
+let fres 0.0125
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits NW14-N2D+-3-2-selfcal.fits from NW14-N2D+-3-2-selfcal.lmv-clean /overwrite
+vector\fits NW14-N2D+-3-2-selfcal-res.fits from NW14-N2D+-3-2-selfcal.lmv-res /overwrite
 
 
 
