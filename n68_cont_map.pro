@@ -275,6 +275,30 @@ vector\fits N68-C18O-2-1-selfcal.fits from N68-C18O-2-1-selfcal.lmv-clean /overw
 vector\fits N68-C18O-2-1-selfcal-res.fits from N68-C18O-2-1-selfcal.lmv-res /overwrite
 
 
+!! CH3OH 5-4
+read uv N68-LSB-line-selfcal
+uv_extract /frequency 216950.04 /width 60 velo
+write uv N68-CH3OH-5-4-selfcal
+
+modify N68-CH3OH-5-4-selfcal.uvt /freq CH3OH5-4 216945.521 !! unit MHz
+!! # Apply selfcal and make deeper clean
+let name N68-CH3OH-5-4-selfcal
+let uv_cell 7.5 0.5
+let weight_mode robust
+let map_size 800
+input uvmap
+
+go uvmap
+
+let niter 500
+let fres 0.0125
+input clean
+go clean
+
+!! # export .fits file
+vector\fits N68-CH3OH-5-4-selfcal.fits from N68-CH3OH-5-4-selfcal.lmv-clean /overwrite
+vector\fits N68-CH3OH-5-4-selfcal-res.fits from N68-CH3OH-5-4-selfcal.lmv-res /overwrite
+
 
 !! Outflow red- and blue-lobe velocity range: blue 7.5~10 km/s red 
 
@@ -308,25 +332,27 @@ vector\fits N68-SiO-5-4-selfcal-res.fits from N68-SiO-5-4-selfcal.lmv-res /overw
 
 !! H2CO 3-2
 read uv N68-LSB-line-selfcal
-uv_extract /frequency 218227.29 /width 40 velo
+uv_extract /frequency 218227.29 /width 50 velo
 write uv N68-H2CO-3-03-2-02-selfcal
 
 modify N68-H2CO-3-03-2-02-selfcal.uvt /freq H2CO 218222.192 !! unit MHz
 
 !! # Apply selfcal and make deeper clean
 let name N68-H2CO-3-03-2-02-selfcal
+let map_cell 0.03
+let map_size 600
 let uv_cell 7.5 0.5
 let weight_mode robust
-let map_size 800
 input uvmap
 
 go uvmap
 
-let niter 1000
+let niter 500
 let fres 0.0125
 input clean
 
 go clean
+
 
 !! # export .fits file
 vector\fits N68-H2CO-3-03-2-02-selfcal.fits from N68-H2CO-3-03-2-02-selfcal.lmv-clean /overwrite
@@ -611,18 +637,25 @@ vector\fits N68-CO-2-1-selfcal.fits from N68-CO-2-1-selfcal.lmv-clean /overwrite
 vector\fits N68-CO-2-1-selfcal-res.fits from N68-CO-2-1-selfcal.lmv-res /overwrite
 
 !! CH3OH 8--1-7-0
-read uv N68-USB-line
-uv_extract /frequency 229764 /width 80 velo
-write uv N68-CH3OH-8--1-7-0
+read uv N68-USB-line-selfcal
+uv_extract /frequency 229764 /width 60 velo
+write uv N68-CH3OH-8--1-7-0-selfcal
 
-modify N68-CH3OH-8--1-7-0.uvt /freq CH3OH8-7 229758.756 !! unit MHz
+modify N68-CH3OH-8--1-7-0-selfcal.uvt /freq CH3OH8-7 229758.756 !! unit MHz
 !! # Apply selfcal and make deeper clean
 let name N68-CH3OH-8--1-7-0-selfcal
-let map_cell 0.05
-let map_size 800
+let map_cell 0.03
+let map_size 600
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
 go uvmap
 
-let niter 200
+let niter 500
+let fres 0.0125
+input clean
+
 go clean
 !! # export .fits file
 vector\fits N68-CH3OH-8--1-7-0-selfcal.fits from N68-CH3OH-8--1-7-0-selfcal.lmv-clean /overwrite
