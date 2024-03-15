@@ -534,18 +534,25 @@ vector\fits N63-CH3OH-8-08-7-16-selfcal.fits from N63-CH3OH-8-08-7-16-selfcal.lm
 vector\fits N63-CH3OH-8-08-7-16-selfcal-res.fits from N63-CH3OH-8-08-7-16-selfcal.lmv-res /overwrite
 
 !! SO-6-5
-read uv N63-LSB-line
+read uv N63-LSB-line-selfcal
 uv_extract /frequency 219950 /width 40 velo
-write uv N63-SO-6-5
+write uv N63-SO-6-5-selfcal
 
-modify N63-SO-6-5.uvt /freq CH3OH8-7 219949.442 !! unit MHz
+modify N63-SO-6-5-selfcal.uvt /freq CH3OH8-7 219949.442 !! unit MHz
 
 !! # Apply selfcal and make deeper clean
 let name N63-SO-6-5-selfcal
-let map_cell 0.05
-let map_size 600
-let niter 500
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
 go uvmap
+
+let niter 500
+let fres 0.0125
+input clean
 
 go clean
 
@@ -553,6 +560,91 @@ go clean
 
 vector\fits N63-SO-6-5-selfcal.fits from N63-SO-6-5-selfcal.lmv-clean /overwrite
 vector\fits N63-SO-6-5-selfcal-res.fits from N63-SO-6-5-selfcal.lmv-res /overwrite
+
+
+!! DCN 3-2
+read uv N63-LSB-line-selfcal
+uv_extract /frequency 217241.70 /width 50 velo
+write uv N63-DCN-3-2-selfcal
+
+modify N63-DCN-3-2-selfcal.uvt /freq CH3OH8-7 217238.6307 !! unit MHz
+
+!! # Apply selfcal and make deeper clean
+let name N63-DCN-3-2-selfcal
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 500
+let fres 0.0125
+input clean
+
+go clean
+
+!! # export .fits file
+
+vector\fits N63-DCN-3-2-selfcal.fits from N63-DCN-3-2-selfcal.lmv-clean /overwrite
+vector\fits N63-DCN-3-2-selfcal-res.fits from N63-DCN-3-2-selfcal.lmv-res /overwrite
+
+!! HC3N
+read uv N63-LSB-line-selfcal
+uv_extract /frequency 218327.20 /width 50 velo
+write uv N63-HC3N-24-23-selfcal
+
+modify N63-HC3N-24-23-selfcal.uvt /freq HC3N 218324.723 !! unit MHz
+
+!! # Apply selfcal and make deeper clean
+let name N63-HC3N-24-23-selfcal
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 500
+let fres 0.0125
+input clean
+
+go clean
+
+!! # export .fits file
+
+vector\fits N63-HC3N-24-23-selfcal.fits from N63-HC3N-24-23-selfcal.lmv-clean /overwrite
+vector\fits N63-HC3N-24-23-selfcal-res.fits from N63-HC3N-24-23-selfcal.lmv-res /overwrite
+
+!! OCS 18-17
+read uv N63-LSB-line-selfcal
+uv_extract /frequency 218907.58 /width 50 velo
+write uv N63-OCS-18-17-selfcal
+
+modify N63-OCS-18-17-selfcal.uvt /freq OCS 218903.3555 !! unit MHz
+
+!! # Apply selfcal and make deeper clean
+let name N63-OCS-18-17-selfcal
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 500
+let fres 0.0125
+input clean
+
+go clean
+
+!! # export .fits file
+
+vector\fits N63-OCS-18-17-selfcal.fits from N63-OCS-18-17-selfcal.lmv-clean /overwrite
+vector\fits N63-OCS-18-17-selfcal-res.fits from N63-OCS-18-17-selfcal.lmv-res /overwrite
 
 
 #######################################################################################################
