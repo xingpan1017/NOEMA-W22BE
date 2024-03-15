@@ -244,19 +244,26 @@ vector\fits N56-CH3CN-12-11-selfcal-res.fits from N56-CH3CN-12-11-selfcal.lmv-re
 
 
 !! CH3OH 4(2,2)-3(1,2)
-read uv N56-LSB-line
-uv_extract /frequency 218430 /width 40 velo
-write uv N56-CH3OH-4-22-3-12
+read uv N56-LSB-line-selfcal
+uv_extract /frequency 218430 /width 50 velo
+write uv N56-CH3OH-4-22-3-12-selfcal
 
-modify N56-CH3OH-4-22-3-12.uvt /freq CH3OH-4-3 218440.0630 !! unit MHz
+modify N56-CH3OH-4-22-3-12-selfcal.uvt /freq CH3OH-43 218440.0630 !! unit MHz
 
 !! # Apply selfcal and make deeper clean
 let name N56-CH3OH-4-22-3-12-selfcal
-let map_cell 0.05
-let map_size 600
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 3.0
+let weight_mode robust
+input uvmap
+
 go uvmap
 
 let niter 500
+let fres 0.0125
+input clean
+
 go clean
 !! # export .fits file
 vector\fits N56-CH3OH-4-22-3-12-selfcal.fits from N56-CH3OH-4-22-3-12-selfcal.lmv-clean /overwrite
@@ -493,6 +500,57 @@ go clean
 vector\fits N56-DCN-3-2-selfcal.fits from N56-DCN-3-2-selfcal.lmv-clean /overwrite
 vector\fits N56-DCN-3-2-selfcal-res.fits from N56-DCN-3-2-selfcal.lmv-res /overwrite
 
+!! HC3N 24-23
+read uv N56-LSB-line-selfcal
+uv_extract /frequency 218308.98 /width 50 velo
+write uv N56-HC3N-24-23-selfcal
+
+modify N56-HC3N-24-23-selfcal.uvt /freq HC3N 218324.723 !! unit MHz
+
+!! # Apply selfcal and make deeper clean
+let name N56-HC3N-24-23-selfcal
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 3.0
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 500
+let fres 0.0125
+input clean
+
+go clean
+!! # export .fits file
+vector\fits N56-HC3N-24-23-selfcal.fits from N56-HC3N-24-23-selfcal.lmv-clean /overwrite
+vector\fits N56-HC3N-24-23-selfcal-res.fits from N56-HC3N-24-23-selfcal.lmv-res /overwrite
+
+!! SO 6-5
+read uv N56-LSB-line-selfcal
+uv_extract /frequency 219935.02 /width 50 velo
+write uv N56-SO-6-5-selfcal
+
+modify N56-SO-6-5-selfcal.uvt /freq SO 219949.4420 !! unit MHz
+
+!! # Apply selfcal and make deeper clean
+let name N56-SO-6-5-selfcal
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 3.0
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 500
+let fres 0.0125
+input clean
+
+go clean
+!! # export .fits file
+vector\fits N56-SO-6-5-selfcal.fits from N56-SO-6-5-selfcal.lmv-clean /overwrite
+vector\fits N56-SO-6-5-selfcal-res.fits from N56-SO-6-5-selfcal.lmv-res /overwrite
 
 #######################################################################################################
 ###########################################################################################################
