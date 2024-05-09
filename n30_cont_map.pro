@@ -182,6 +182,33 @@ write uv N30-CH3CN-12-11-k-6
 
 modify N30-CH3CN-12-11-k-6.uvt /freq CH3CN-12-11-k-6 220594.42310 /specunit frequency !! unit MHz
 
+!! CH3CN 12-11 K=3
+read uv N30-LSB-line-selfcal
+uv_extract /frequency 220708 /width 60 velo
+write uv N30-CH3CN-12-11-k3-selfcal
+
+modify N30-CH3CN-12-11-k3-selfcal.uvt /freq CH3CN-k3 220709.0165 !! unit MHz
+
+!! # Apply selfcal and make deeper clean
+let name N30-CH3CN-12-11-k3-selfcal
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 800
+let fres 0.0125
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits N30-CH3CN-12-11-k3-selfcal.fits from N30-CH3CN-12-11-k3-selfcal.lmv-clean /overwrite
+vector\fits N30-CH3CN-12-11-k3-selfcal-res.fits from N30-CH3CN-12-11-k3-selfcal.lmv-res /overwrite
+
 !! CH3CN 12-11 K=4
 read uv N30-LSB-line-selfcal
 uv_extract /frequency 220680 /width 60 velo
