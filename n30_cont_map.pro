@@ -175,12 +175,34 @@ uv_base 0 /frequency 213884 214346 214709 215210 216673 216956 217106 217293 218
 write uv N30-LSB-line
 
 !! Extract line emissions
-!! CH3CN 12-11 K=6
-read uv N30-LSB-line
-uv_extract /frequency 220580 /width 100 velo
-write uv N30-CH3CN-12-11-k-6
 
-modify N30-CH3CN-12-11-k-6.uvt /freq CH3CN-12-11-k-6 220594.42310 /specunit frequency !! unit MHz
+!! CH3OH 8(0,8)-7(1,6)
+read uv N30-LSB-line-selfcal
+uv_extract /frequency 220078 /width 60 velo
+write uv N30-CH3OH-8-08-7-16-selfcal
+
+modify N30-CH3OH-8-08-7-16-selfcal.uvt /freq CH3OH-87 220078.561 !! unit MHz
+
+!! # Apply selfcal and make deeper clean
+let name N30-CH3OH-8-08-7-16-selfcal
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 800
+let fres 0.0125
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits N30-CH3OH-8-08-7-16-selfcal.fits from N30-CH3OH-8-08-7-16-selfcal.lmv-clean /overwrite
+vector\fits N30-CH3OH-8-08-7-16-selfcal-res.fits from N30-CH3OH-8-08-7-16-selfcal.lmv-res /overwrite
+
 
 !! CH3CN 12-11 K=3
 read uv N30-LSB-line-selfcal
