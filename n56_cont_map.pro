@@ -166,32 +166,32 @@ uv_base 0 /frequency 221622 220386 219928 215199 213885  /width 20 velo !! set 1
 write uv N56-LSB-line
 
 !! Extract line emissions
-!! CH3CN 12-11 K=6
-read uv N56-LSB-line
-uv_extract /frequency 220580 /width 100 velo
-write uv N56-CH3CN-12-11-k-6
+!! CH3OH 8(0,8)-7(1,6)
+read uv N56-LSB-line-selfcal
+uv_extract /frequency 220070 /width 60 velo
+write uv N56-CH3OH-8-08-7-16-selfcal
 
-modify N56-CH3CN-12-11-k-6.uvt /freq CH3CN-12-11-k-6 220594.42310 /specunit frequency !! unit MHz
-
-!! CH3CN 12-11 K=4
-read uv N56-LSB-line
-uv_extract /frequency 220680 /width 40 velo
-write uv N56-CH3CN-12-11-k-4
-
-modify N56-CH3CN-12-11-k-4.uvt /freq CH3CN-k4 220679.2869 !! unit MHz
+modify N56-CH3OH-8-08-7-16-selfcal.uvt /freq CH3OH-87 220078.561 !! unit MHz
 
 !! # Apply selfcal and make deeper clean
-let name N56-CH3CN-12-11-k-4-selfcal
-let map_cell 0.05
+let name N56-CH3OH-8-08-7-16-selfcal
+let map_cell 0.03
 let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
 go uvmap
 
-let niter 500
+let niter 800
+let fres 0.0125
+input clean
+
 go clean
 
 !! # export .fits file
-vector\fits N56-CH3CN-12-11-k-4-selfcal.fits from N56-CH3CN-12-11-k-4-selfcal.lmv-clean /overwrite
-vector\fits N56-CH3CN-12-11-k-4-selfcal-res.fits from N56-CH3CN-12-11-k-4-selfcal.lmv-res /overwrite
+vector\fits N56-CH3OH-8-08-7-16-selfcal.fits from N56-CH3OH-8-08-7-16-selfcal.lmv-clean /overwrite
+vector\fits N56-CH3OH-8-08-7-16-selfcal-res.fits from N56-CH3OH-8-08-7-16-selfcal.lmv-res /overwrite
 
 
 !! CH3CN 12-11 K=3
