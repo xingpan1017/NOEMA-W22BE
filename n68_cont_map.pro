@@ -616,14 +616,14 @@ modify N68-CO-2-1-selfcal.uvt /freq CO2-1 230538.0 !! unit MHz
 !! # Apply selfcal and make deeper clean
 let name N68-CO-2-1-selfcal
 let map_cell 0.03
-let map_size 600
-let uv_cell 7.5 0.5
+let map_size 800
+let uv_cell 7.5 3.0
 let weight_mode robust
 input uvmap
 
 go uvmap
 
-let niter 500
+let niter 1000
 let fres 0.0125
 input clean
 
