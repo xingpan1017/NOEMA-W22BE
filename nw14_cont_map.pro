@@ -258,24 +258,32 @@ vector\fits NW14-CH3CN-12-11-selfcal.fits from NW14-CH3CN-12-11-selfcal.lmv-clea
 vector\fits NW14-CH3CN-12-11-selfcal-res.fits from NW14-CH3CN-12-11-selfcal.lmv-res /overwrite
 
 
-!! CH3CN 12-11 K=3
-read uv NW14-LSB-line
-uv_extract /frequency 220712 /width 40 velo
-write uv NW14-CH3CN-12-11-k3
+!! SiS 12-11 
+read uv NW14-LSB-line-selfcal
+uv_extract /frequency 217818 /width 50 velo
+write uv NW14-SiS-12-11-selfcal
 
-modify NW14-CH3CN-12-11-k3.uvt /freq CH3CN-k3 220709.0165 !! unit MHz
+modify NW14-SiS-12-11-selfcal.uvt /freq SiS 217818 !! unit MHz
 
 !! # Apply selfcal and make deeper clean
-let name NW14-CH3CN-12-11-k3-selfcal
-let map_cell 0.05
+let name NW14-SiS-12-11-selfcal
+let map_cell 0.03
 let map_size 600
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
 go uvmap
 
 let niter 500
+let fres 0.0125
+input clean
+
 go clean
+
 !! # export .fits file
-vector\fits NW14-CH3CN-12-11-k3-selfcal.fits from NW14-CH3CN-12-11-k3-selfcal.lmv-clean /overwrite
-vector\fits NW14-CH3CN-12-11-k3-selfcal-res.fits from NW14-CH3CN-12-11-k3-selfcal.lmv-res /overwrite
+vector\fits NW14-SiS-12-11-selfcal.fits from NW14-SiS-12-11-selfcal.lmv-clean /overwrite
+vector\fits NW14-SiS-12-11-selfcal-res.fits from NW14-SiS-12-11-selfcal.lmv-res /overwrite
 
 
 !! 13CO 2-1
