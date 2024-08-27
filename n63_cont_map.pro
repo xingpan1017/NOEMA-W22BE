@@ -295,19 +295,27 @@ vector\fits N63-13CO-2-1-selfcal.fits from N63-13CO-2-1-selfcal.lmv-clean /overw
 vector\fits N63-13CO-2-1-selfcal-res.fits from N63-13CO-2-1-selfcal.lmv-res /overwrite
 
 !! C18O 2-1
-read uv N63-LSB-line
+read uv N63-LSB-line-selfcal
 uv_extract /frequency 219560 /width 60 velo
-write uv N63-C18O-2-1
+write uv N63-C18O-2-1-selfcal
 
-modify N63-C18O-2-1.uvt /freq C18O2-1 219560.358 !! unit MHz
+modify N63-C18O-2-1-selfcal.uvt /freq C18O2-1 219560.358 !! unit MHz
 !! # Apply selfcal and make deeper clean
 let name N63-C18O-2-1-selfcal
-let map_cell 0.05
-let map_size 600
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
 go uvmap
 
-let niter 500
+let niter 1000
+let fres 0.0125
+input clean
+
 go clean
+
 !! # export .fits file
 vector\fits N63-C18O-2-1-selfcal.fits from N63-C18O-2-1-selfcal.lmv-clean /overwrite
 vector\fits N63-C18O-2-1-selfcal-res.fits from N63-C18O-2-1-selfcal.lmv-res /overwrite
