@@ -1,0 +1,25 @@
+!! We use clic (Continuum and Line Interferometric Calibration) to do and check the calibration
+!! Read the tutorial in https://www.iram.fr/IRAMFR/GILDAS/doc/html/clic-html/clic.html
+
+!! First, we should read the raw data file (.IPB) and header file (.HPB)
+!! We click the "Open raw data file" button and enter the absolute path of raw data file in 
+!! "RAW DATA DIRECTORIES", and then enter the name of header file. And then press "GO" to run the command.
+
+!! After that, we can click "First look" to take a quick look of the information of the data file
+
+!!#########################################################################################
+!! Check calibration quality
+!!#########################################################################################
+!! We use command "SET" to select parameter we need, and "PLOT" to plot the parameters
+
+set x time  !! Set x axis of time
+set y phase !! Set y axis of phase
+set averaging cont !! sideband averages are computed on continuum subbands.
+set source 3C279  !! Select bandpass calibrator
+set source mwc349 !! Select gain calibrator
+set phase relative !! Apply phase calibration
+show phase !! It will show the parameters we set
+
+!! set ant 1 !! select the first antenna to show
+
+plot !! Plot the parameters
