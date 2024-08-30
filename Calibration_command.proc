@@ -10,16 +10,47 @@
 !!#########################################################################################
 !! Check calibration quality
 !!#########################################################################################
-!! We use command "SET" to select parameter we need, and "PLOT" to plot the parameters
+!! We use command "SET" to select parameter we need, and "PLOT" to plot the parameters, "find" to select data we needed
+
+!! Open raw data
+file in 230105W22BE001.IPB
+find
+list 
+!! Create new hpb file
+!!file out 230105-test.hpb new
+
+file in 05-jan-2023-w22be001.hpb
+copy headers
+find
+
+find /source 3C279  !! Select bandpass calibrator
+find /source 2005+403 /prodecure corr !! Select gain calibrator
+
+list
 
 set x time  !! Set x axis of time
 set y phase !! Set y axis of phase
 set averaging cont !! sideband averages are computed on continuum subbands.
-set source 3C279  !! Select bandpass calibrator
-set source mwc349 !! Select gain calibrator
-set phase relative !! Apply phase calibration
+find /source 3C279  !! Select bandpass calibrator
+find /source 2013+370 /procedure corr !! Select gain calibrator
+list
+
+set phase relative atm !! Apply phase calibration, atmosphere correction
+set rf_passband on !! Apply bandpass calibration
+set amp relative !! Apply amp calibration
+
 show phase !! It will show the parameters we set
 
 !! set ant 1 !! select the first antenna to show
 
 plot !! Plot the parameters
+
+!! Check bandpass calibration
+find /source 3C84
+list 
+set x channel
+set y amp
+set bband 1 2 5 6 !!index for LSB at lower resolution
+set bband 9 10 13 14 !!index for LSB at high resolution
+
+header /list !! list the spectral windows and their rest frequencies
