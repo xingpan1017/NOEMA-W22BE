@@ -10,6 +10,12 @@
 !!#########################################################################################
 !! Check calibration quality
 !!#########################################################################################
+!! 20230105 high humidity (~80), strong wind (~10 m/s) bad phase cal
+!! 20230123 high humidity (~55), medium wind (~4 m/s) not bad pha cal, except for several ants, e.g., ant 7, 9
+!! 20230130 low humidity (~30), strong wind (~8 m/s) short duration, not bad pha cal
+!! 20230212 medium humidity (~45), weak wind (~2 m/s) not bad phase cal
+
+
 !! We use command "SET" to select parameter we need, and "PLOT" to plot the parameters, "find" to select data we needed
 
 !! Open raw data
