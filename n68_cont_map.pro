@@ -119,7 +119,7 @@ go clean
 !! ###### Flag the bad channels ##############
 read uv w22be001-searchdisk-250kHz-LSB-CygX-N68.uvt
 
-uv_filter /frequency 221620 213887 /width 50 velo 
+uv_filter /frequency 221633.17 217985.17 217761.17 217537.17 213889.17 /width 10 velo 
 write uv N68-LSB-filter
 
 !! ###### Generate LSB continuum uv table #############
@@ -146,12 +146,14 @@ write uv N68-LSB-cont
 !! make deeper clean for the continuum uv table
 let name N68-LSB-cont-selfcal
 let uv_cell 7.5 0.5
+let map_cell 0.03
+let map_size 1200
 let weight_mode robust
 input uvmap
 
 go uvmap
 
-let niter 500
+let niter 1000
 let fres 0.0125
 input clean
 
@@ -558,7 +560,7 @@ go clean
 !! ###### Flag the bad channels ##############
 read uv w22be001-searchdisk-250kHz-USB-CygX-N68.uvt
 
-uv_filter /frequency 237127 229370 /width 50 velo 
+uv_filter /frequency 229377.17 233025.17 233249.17 233473.17 237121.17 /width 10 velo 
 write uv N68-USB-filter
 
 !! ###### Generate LSB continuum uv table #############
@@ -586,6 +588,26 @@ input uvmap
 go uvmap
 
 let niter 1500
+let fres 0.0125
+input clean
+
+go clean
+
+vector\fits N68-USB-cont-selfcal.fits from N68-USB-cont-selfcal.lmv-clean /overwrite
+vector\fits N68-USB-cont-selfcal-res.fits from N68-USB-cont-selfcal.lmv-res /overwrite
+
+go uv_merge
+
+let name N68-comb-cont-selfcal
+let uv_cell 7.5 0.5
+let map_cell 0.03
+let map_size 1200
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 2000
 let fres 0.0125
 input clean
 
