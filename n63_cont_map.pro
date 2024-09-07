@@ -117,7 +117,7 @@ go clean
 !! ###### Flag the bad channels ##############
 read uv w22be001-searchdisk-250kHz-LSB-CygX-N63.uvt
 
-uv_filter /frequency 221620 217770 213887 /width 50 velo 
+uv_filter /frequency 221633.17 217985.17 217761.17 217537.17 213889.17 /width 10 velo 
 write uv N63-LSB-filter
 
 !! ###### Generate LSB continuum uv table #############
@@ -700,7 +700,7 @@ go clean
 !! ###### Flag the bad channels ##############
 read uv w22be001-searchdisk-250kHz-USB-CygX-N63.uvt
 
-uv_filter /frequency 237127 229373 /width 50 velo 
+uv_filter /frequency 229377.17 233025.17 233249.17 233473.17 237121.17 /width 10 velo 
 write uv N63-USB-filter
 
 !! ###### Generate USB continuum uv table #############
