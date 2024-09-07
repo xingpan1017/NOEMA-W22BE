@@ -27,79 +27,79 @@ set selection line USB l11 and l12 and l15 and l16
 find /source CygX-N30-MM2
 if found.gt.0 then 
   list /short 
-  table w22be001-searchdisk-250kHz-USB-CygX-N30-MM2 
+  table w22be001-searchdisk-250kHz-USB-CygX-N30-MM2 NEW
 end if
 
 set selection line LSB l09 and l10 and l13 and l14
 find /source CygX-N30-MM2 
 if found.gt.0 then 
   list /short 
-  table w22be001-searchdisk-250kHz-LSB-CygX-N30-MM2 
+  table w22be001-searchdisk-250kHz-LSB-CygX-N30-MM2 NEW
 end if
  
 set selection line USB l11 and l12 and l15 and l16
 find /source CygX-NW14 
 if found.gt.0 then 
   list /short 
-  table w22be001-searchdisk-250kHz-USB-CygX-NW14 
+  table w22be001-searchdisk-250kHz-USB-CygX-NW14 NEW
 end if
 set selection line LSB l09 and l10 and l13 and l14
 find /source CygX-NW14 
 if found.gt.0 then 
   list /short 
-  table w22be001-searchdisk-250kHz-LSB-CygX-NW14 
+  table w22be001-searchdisk-250kHz-LSB-CygX-NW14 NEW
 end if
  
 set selection line USB l11 and l12 and l15 and l16
 find /source CygX-N63 
 if found.gt.0 then 
   list /short 
-  table w22be001-searchdisk-250kHz-USB-CygX-N63 
+  table w22be001-searchdisk-250kHz-USB-CygX-N63 NEW
 end if
 set selection line LSB l09 and l10 and l13 and l14
 find /source CygX-N63
 if found.gt.0 then 
   list /short 
-  table w22be001-searchdisk-250kHz-LSB-CygX-N63 
+  table w22be001-searchdisk-250kHz-LSB-CygX-N63 NEW
 end if
  
 set selection line USB l11 and l12 and l15 and l16
 find /source CygX-S10 
 if found.gt.0 then 
   list /short 
-  table w22be001-searchdisk-250kHz-USB-CygX-S10 
+  table w22be001-searchdisk-250kHz-USB-CygX-S10 NEW
 end if
 set selection line LSB l09 and l10 and l13 and l14
 find /source CygX-S10 
 if found.gt.0 then 
   list /short 
-  table w22be001-searchdisk-250kHz-LSB-CygX-S10 
+  table w22be001-searchdisk-250kHz-LSB-CygX-S10 NEW
 end if
  
 set selection line USB l11 and l12 and l15 and l16
 find /source CygX-N68
 if found.gt.0 then 
   list /short 
-  table w22be001-searchdisk-250kHz-USB-CygX-N68 
+  table w22be001-searchdisk-250kHz-USB-CygX-N68 NEW
 end if
 set selection line LSB l09 and l10 and l13 and l14
 find /source CygX-N68
 if found.gt.0 then 
   list /short 
-  table w22be001-searchdisk-250kHz-LSB-CygX-N68 
+  table w22be001-searchdisk-250kHz-LSB-CygX-N68 NEW
 end if
  
 set selection line USB l11 and l12 and l15 and l16
 find /source CygX-N56 
 if found.gt.0 then 
   list /short 
-  table w22be001-searchdisk-250kHz-USB-CygX-N56 
+  table w22be001-searchdisk-250kHz-USB-CygX-N56 NEW
 end if
 set selection line LSB l09 and l10 and l13 and l14
 find /source CygX-N56 
 if found.gt.0 then 
   list /short 
-  table w22be001-searchdisk-250kHz-LSB-CygX-N56 
+  table w22be001-searchdisk-250kHz-LSB-CygX-N56 NEW
 end if
  
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
