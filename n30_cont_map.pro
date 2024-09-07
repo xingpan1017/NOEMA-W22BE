@@ -146,14 +146,14 @@ write uv N30-LSB-cont
 !! make deeper clean for the continuum uv table
 let name N30-LSB-cont-selfcal
 let map_cell 0.03
-let map_size 800
+let map_size 1600
 let uv_cell 7.5 0.5
 let weight_mode robust
 input uvmap
 
 go uvmap
 
-let niter 1000
+let niter 2000
 let fres 0.0125
 input clean
 
@@ -841,7 +841,7 @@ write uv N30-USB-filter
 
 !! ###### Generate USB continuum uv table #############
 read uv N30-USB-filter.uvt
-uv_filter /zero /frequency 235991 230538 /width 50 velo !! set 100 km/s channels around the frequency list to zero
+uv_filter /zero /frequency 235991 230538 /width 80 velo !! set 100 km/s channels around the frequency list to zero
 uv_filter /zero /frequency 237091 237071 237051 236931 236711 236511 236315 236211 235151 234691 234671 234171 233791 232951 232931 232771 232411 231271 231051 230031 230011 229751 229591  /width 20 velo !! set 20 km/s channels around the frequency list to zero
 write uv N30-USB-linefree
 
@@ -858,7 +858,7 @@ write uv N30-USB-cont
 !! make deeper clean for the continuum uv table
 let name N30-USB-cont-selfcal
 let uv_cell 7.5 0.5
-let map_size 800
+let map_size 1600
 let map_cell 0.03
 let weight_mode robust
 input uvmap
@@ -874,6 +874,20 @@ go clean
 vector\fits N30-USB-cont-selfcal.fits from N30-USB-cont-selfcal.lmv-clean /overwrite
 vector\fits N30-USB-cont-selfcal-res.fits from N30-USB-cont-selfcal.lmv-res /overwrite
 
+let name N30-comb-cont-selfcal
+let uv_cell 7.5 0.5
+let map_size 2400
+let map_cell 0.03
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1500
+let fres 0.0125
+input clean
+
+go clean
 
 vector\fits N30-comb-cont-selfcal.fits from N30-comb-cont-selfcal.lmv-clean /overwrite
 vector\fits N30-comb-cont-selfcal-res.fits from N30-comb-cont-selfcal.lmv-res /overwrite
