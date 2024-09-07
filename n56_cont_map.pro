@@ -141,7 +141,7 @@ write uv N56-LSB-cont
 let name N56-LSB-cont-selfcal
 let uv_cell 7.5 0.5
 let map_cell 0.03
-let map_size 1200
+let map_size 1600
 let weight_mode robust
 input uvmap
 
@@ -601,7 +601,7 @@ write uv N56-USB-cont
 !! make deeper clean for the continuum uv table
 let name N56-USB-cont-selfcal
 let uv_cell 7.5 0.5
-let map_size 1200
+let map_size 1600
 let map_cell 0.03
 let weight_mode robust
 input uvmap
@@ -620,7 +620,7 @@ vector\fits N56-USB-cont-selfcal-res.fits from N56-USB-cont-selfcal.lmv-res /ove
 let name N56-comb-cont-selfcal
 let uv_cell 7.5 0.5
 let map_cell 0.03
-let map_size 1200
+let map_size 2048
 let weight_mode robust
 input uvmap
 
