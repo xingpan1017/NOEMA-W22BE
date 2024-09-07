@@ -118,7 +118,7 @@ go clean
 !! ###### Flag the bad channels ##############
 read uv w22be001-searchdisk-250kHz-LSB-CygX-N56.uvt
 
-uv_filter /frequency 221627 213890 /width 50 velo 
+uv_filter /frequency 221633.17 217985.17 217761.17 217537.17 213889.17 /width 10 velo 
 write uv N56-LSB-filter
 
 !! ###### Generate LSB continuum uv table #############
@@ -140,12 +140,14 @@ write uv N56-LSB-cont
 !! make deeper clean for the continuum uv table
 let name N56-LSB-cont-selfcal
 let uv_cell 7.5 0.5
+let map_cell 0.03
+let map_size 1200
 let weight_mode robust
 input uvmap
 
 go uvmap
 
-let niter 500
+let niter 2000
 let fres 0.0125
 input clean
 
@@ -577,12 +579,12 @@ go clean
 !! ###### Flag the bad channels ##############
 read uv w22be001-searchdisk-250kHz-USB-CygX-N56.uvt
 
-uv_filter /frequency 237121 229365 /width 50 velo 
+uv_filter /frequency 229377.17 233025.17 233249.17 233473.17 237121.17 /width 10 velo 
 write uv N56-USB-filter
 
 !! ###### Generate USB continuum uv table #############
 read uv N56-USB-filter.uvt
-uv_filter /zero /frequency 230510 /width 100 velo !! set 100 km/s channels around the frequency list to zero
+uv_filter /zero /frequency 230510 /width 60 velo !! set 100 km/s channels around the frequency list to zero
 uv_filter /zero /frequency 237269 237106 235720 229371 229237 /width 20 velo !! set 100 km/s channels around the frequency list to zero
 write uv N56-USB-linefree
 
@@ -599,28 +601,32 @@ write uv N56-USB-cont
 !! make deeper clean for the continuum uv table
 let name N56-USB-cont-selfcal
 let uv_cell 7.5 0.5
+let map_size 1200
+let map_cell 0.03
 let weight_mode robust
 input uvmap
 
 go uvmap
 
-let niter 500
+let niter 2000
 let fres 0.0125
 input clean
 
 go clean
 
-vector\fits N56-USB-cont-selfcal.fits from N56-LSB-cont-selfcal.lmv-clean /overwrite
+vector\fits N56-USB-cont-selfcal.fits from N56-USB-cont-selfcal.lmv-clean /overwrite
 vector\fits N56-USB-cont-selfcal-res.fits from N56-USB-cont-selfcal.lmv-res /overwrite
 
 let name N56-comb-cont-selfcal
 let uv_cell 7.5 0.5
+let map_cell 0.03
+let map_size 1200
 let weight_mode robust
 input uvmap
 
 go uvmap
 
-let niter 1500
+let niter 2000
 let fres 0.0125
 input clean
 
