@@ -118,14 +118,15 @@ vector\fits N30-LSB-comp-res.fits from N30-LSB-comp.lmv-res /overwrite
 
 !! ###### Flag the bad channels ##############
 read uv w22be001-searchdisk-250kHz-LSB-CygX-N30-MM2.uvt
+!! Flag spurious lines triggered by the IF processor
 
-uv_filter /frequency 221606 /width 100 velo
-uv_filter /frequency 213879.5 /width 50 velo 
+uv_filter /frequency 221632.98 217984.98 217760.98 217536.98 213888.98 /width 10 velo
+
 write uv N30-LSB-filter
 
 !! ###### Generate LSB continuum uv table #############
 read uv N30-LSB-filter.uvt
-uv_filter /zero /frequency 213884 214346 214709 215210 216673 216956 217106 217293 218323 218458 218862 218991 219171 219262 219348 219468 219765 219944 220591 220749 221645 /width 30 velo !! set 40 km/s channels around the frequency list to zero
+uv_filter /zero /frequency 213884 214346 214709 215210 216673 216956 217106 217293 218323 218458 218862 218991 219171 219262 219348 219468 219765 219944 220591 220749 221645 /width 20 velo !! set 20 km/s channels around the frequency list to zero
 write uv N30-LSB-linefree
 
 read uv N30-LSB-linefree
@@ -145,7 +146,7 @@ write uv N30-LSB-cont
 !! make deeper clean for the continuum uv table
 let name N30-LSB-cont-selfcal
 let map_cell 0.03
-let map_size 2048
+let map_size 800
 let uv_cell 7.5 0.5
 let weight_mode robust
 input uvmap
@@ -834,12 +835,13 @@ go clean
 !! ###### Flag the bad channels ##############
 read uv w22be001-searchdisk-250kHz-USB-CygX-N30-MM2.uvt
 
-uv_filter /frequency 237121 229365 /width 50 velo 
+!! Flag some known spurious lines triggered by the IF processor
+uv_filter /frequency 229376.98 233024.98 233248.98 233472.98 237120.98 /width 10 velo 
 write uv N30-USB-filter
 
 !! ###### Generate USB continuum uv table #############
 read uv N30-USB-filter.uvt
-uv_filter /zero /frequency 235991 230538 /width 150 velo !! set 100 km/s channels around the frequency list to zero
+uv_filter /zero /frequency 235991 230538 /width 50 velo !! set 100 km/s channels around the frequency list to zero
 uv_filter /zero /frequency 237091 237071 237051 236931 236711 236511 236315 236211 235151 234691 234671 234171 233791 232951 232931 232771 232411 231271 231051 230031 230011 229751 229591  /width 20 velo !! set 20 km/s channels around the frequency list to zero
 write uv N30-USB-linefree
 
@@ -856,16 +858,22 @@ write uv N30-USB-cont
 !! make deeper clean for the continuum uv table
 let name N30-USB-cont-selfcal
 let uv_cell 7.5 0.5
+let map_size 800
+let map_cell 0.03
 let weight_mode robust
 input uvmap
 
 go uvmap
 
-let niter 500
+let niter 1000
 let fres 0.0125
 input clean
 
 go clean
+
+vector\fits N30-USB-cont-selfcal.fits from N30-USB-cont-selfcal.lmv-clean /overwrite
+vector\fits N30-USB-cont-selfcal-res.fits from N30-USB-cont-selfcal.lmv-res /overwrite
+
 
 vector\fits N30-comb-cont-selfcal.fits from N30-comb-cont-selfcal.lmv-clean /overwrite
 vector\fits N30-comb-cont-selfcal-res.fits from N30-comb-cont-selfcal.lmv-res /overwrite
