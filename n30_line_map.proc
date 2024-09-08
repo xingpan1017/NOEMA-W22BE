@@ -22,7 +22,7 @@ modify N30-CH3OH-8-08-7-16.uvt /freq CH3OH-87 220078.561 !! unit MHz
 let name N30-CH3OH-8-08-7-16
 let map_cell 0.03
 let map_size 1600
-let uv_cell 7.5 0.5
+let map_robust 0.5
 let weight_mode robust
 input uvmap
 
@@ -51,7 +51,7 @@ modify N30-CH3CN-12-11-k3.uvt /freq CH3CN-k3 220709.0165 !! unit MHz
 let name N30-CH3CN-12-11-k3
 let map_cell 0.03
 let map_size 1600
-let uv_cell 7.5 0.5
+let map_robust 0.5
 let weight_mode robust
 input uvmap
 
@@ -80,7 +80,7 @@ modify N30-CH3CN-12-11-k7.uvt /freq CH3CN-k7 220539.32350 !! unit MHz
 let name N30-CH3CN-12-11-k7
 let map_cell 0.03
 let map_size 1600
-let uv_cell 7.5 0.5
+let map_robust 0.5
 let weight_mode robust
 input uvmap
 
@@ -111,7 +111,7 @@ modify N30-CH3CN-12-11.uvt /freq CH3CN-k0-8 220747.2612 !! unit MHz
 let name N30-CH3CN-12-11
 let map_cell 0.03
 let map_size 1600
-let uv_cell 7.5 0.5
+let map_robust 0.5
 let weight_mode robust
 input uvmap
 
@@ -140,7 +140,7 @@ modify N30-13CO-2-1.uvt /freq 13CO 220398.6195 !! unit MHz
 let name N30-13CO-2-1
 let map_cell 0.03
 let map_size 1600
-let uv_cell 7.5 0.5
+let map_robust 0.5
 let weight_mode robust
 input uvmap
 
@@ -168,7 +168,7 @@ modify N30-C18O-2-1.uvt /freq C18O 219560.358 !! unit MHz
 let name N30-C18O-2-1
 let map_cell 0.03
 let map_size 1600
-let uv_cell 7.5 0.5
+let map_robust 0.5
 let weight_mode robust
 input uvmap
 
@@ -288,7 +288,7 @@ modify N30-H2CO-3-2.uvt /freq H2CO 218475.632 !! unit MHz
 let name N30-H2CO-3-2
 let map_cell 0.03
 let map_size 1600
-let uv_cell 7.5 0.5
+let map_robust 0.5
 let weight_mode robust
 input uvmap
 
@@ -317,7 +317,7 @@ modify N30-CH3OCHO-17-3-14-16-3-13E.uvt /freq CH3OCHO17-16E 	218280.9 !! unit MH
 let name N30-CH3OCHO-17-3-14-16-3-13E
 let map_cell 0.03
 let map_size 1600
-let uv_cell 7.5 0.5
+let map_robust 0.5
 let weight_mode robust
 input uvmap
 
@@ -346,7 +346,7 @@ modify N30-CH3OCHO-17-3-14-16-3-13A.uvt /freq CH3OCHO  218297.866 !! unit MHz
 let name N30-CH3OCHO-17-3-14-16-3-13A
 let map_cell 0.03
 let map_size 1600
-let uv_cell 7.5 0.5
+let map_robust 0.5
 let weight_mode robust
 input uvmap
 
@@ -375,7 +375,7 @@ modify N30-NH2CHO-10-9.uvt /freq NH2CHO 218459.205 !! unit MHz
 let name N30-NH2CHO-10-9
 let map_cell 0.03
 let map_size 1600
-let uv_cell 7.5 0.5
+let map_robust 0.5
 let weight_mode robust
 input uvmap
 
@@ -427,7 +427,7 @@ modify N30-SO-6-5.uvt /freq SO6-5 219949.442 !! unit MHz
 let name N30-SO-6-5
 let map_cell 0.03
 let map_size 1600
-let uv_cell 7.5 0.5
+let map_robust 0.5
 let weight_mode robust
 input uvmap
 
@@ -456,7 +456,7 @@ modify N30-DCO+-3-2.uvt /freq DCO+ 216112.58 !! unit MHz
 let name N30-DCO+-3-2
 let map_cell 0.03
 let map_size 1600
-let uv_cell 7.5 0.5
+let map_robust 0.5
 let weight_mode robust
 input uvmap
 
@@ -483,7 +483,7 @@ modify N30-OCS-18-17.uvt /freq OCS 218903.3555 !! unit MHz
 let name N30-OCS-18-17
 let map_cell 0.03
 let map_size 1600
-let uv_cell 7.5 0.5
+let map_robust 0.5
 let weight_mode robust
 input uvmap
 
@@ -569,7 +569,7 @@ modify N30-D2CO-4-04-3-03.uvt /freq D2CO4-3 229758.756 !! unit MHz
 let name N30-D2CO-4-04-3-03
 let map_cell 0.03
 let map_size 1600
-let uv_cell 7.5 0.5
+let map_robust 0.5
 let weight_mode robust
 input uvmap
 
@@ -616,7 +616,7 @@ modify N30-13CS-5-4.uvt /freq 13CS5-4 231220.6987 !! unit MHz
 let name N30-13CS-5-4
 let map_cell 0.03
 let map_size 1600
-let uv_cell 7.5 0.5
+let map_robust 0.5
 let weight_mode robust
 input uvmap
 
@@ -643,7 +643,7 @@ modify N30-N2D+-3-2.uvt /freq N2D+ 231321.6650 !! unit MHz
 let name N30-N2D+-3-2
 let map_cell 0.03
 let map_size 1600
-let uv_cell 7.5 0.5
+let map_robust 0.5
 let weight_mode robust
 input uvmap
 
@@ -670,7 +670,7 @@ modify N30-CH2CHCN-12-2-11-1.uvt /freq CH2CHCN 232032.80290 !! unit MHz
 let name N30-CH2CHCN-12-2-11-1
 let map_cell 0.03
 let map_size 1600
-let uv_cell 7.5 0.5
+let map_robust 0.5
 let weight_mode robust
 input uvmap
 
