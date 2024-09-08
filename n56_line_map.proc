@@ -209,31 +209,31 @@ vector\fits N56-SiO-5-4-selfcal-res.fits from N56-SiO-5-4-selfcal.lmv-res /overw
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !! H2CO 3-2 line total
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-read uv N56-LSB-line-selfcal
-uv_extract /frequency 218450 /width 1000 velo
-write uv N56-H2CO-3-2-selfcal
+!!read uv N56-LSB-line-selfcal
+!!uv_extract /frequency 218450 /width 1000 velo
+!!write uv N56-H2CO-3-2-selfcal
 
-modify N56-H2CO-3-2-selfcal.uvt /freq H2CO-3-2 218475.632 !! unit MHz
+!!modify N56-H2CO-3-2-selfcal.uvt /freq H2CO-3-2 218475.632 !! unit MHz
 
-!! # Apply selfcal and make deeper clean
-let name N56-H2CO-3-2-selfcal
-let map_cell 0.03
-let map_size 800
-let uv_cell 7.5 0.5
-let weight_mode robust
-input uvmap
+!!!! # Apply selfcal and make deeper clean
+!!let name N56-H2CO-3-2-selfcal
+!!let map_cell 0.03
+!!let map_size 800
+!!let uv_cell 7.5 0.5
+!!let weight_mode robust
+!!input uvmap
 
-go uvmap
+!!go uvmap
 
-let niter 800
-let ares 0.005
-input clean
+!!let niter 800
+!!let ares 0.005
+!!input clean
 
-go clean
+!!go clean
 
 !! # export .fits file
-vector\fits N56-H2CO-3-2-selfcal.fits from N56-H2CO-3-2-selfcal.lmv-clean /overwrite
-vector\fits N56-H2CO-3-2-selfcal-res.fits from N56-H2CO-3-2-selfcal.lmv-res /overwrite
+!!vector\fits N56-H2CO-3-2-selfcal.fits from N56-H2CO-3-2-selfcal.lmv-clean /overwrite
+!!vector\fits N56-H2CO-3-2-selfcal-res.fits from N56-H2CO-3-2-selfcal.lmv-res /overwrite
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!! CH3O13CHO 9-5-9-3
