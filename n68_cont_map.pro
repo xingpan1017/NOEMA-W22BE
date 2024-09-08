@@ -124,7 +124,7 @@ write uv N68-LSB-filter
 
 !! ###### Generate LSB continuum uv table #############
 read uv N68-LSB-filter.uvt
-uv_filter /zero /frequency 221584 217984 217764 217109 /width 20 velo !! set 20 km/s channels around the frequency list to zero
+uv_filter /frequency 221584 217984 217764 217109 /width 20 velo !! set 20 km/s channels around the frequency list to zero
 write uv N68-LSB-linefree
 
 read uv N68-LSB-linefree
@@ -147,7 +147,7 @@ write uv N68-LSB-cont
 let name N68-LSB-cont-selfcal
 let uv_cell 7.5 0.5
 let map_cell 0.03
-let map_size 1200
+let map_size 1600
 let weight_mode robust
 input uvmap
 
@@ -587,7 +587,7 @@ input uvmap
 
 go uvmap
 
-let niter 1500
+let niter 1600
 let fres 0.0125
 input clean
 
@@ -601,7 +601,7 @@ go uv_merge
 let name N68-comb-cont-selfcal
 let uv_cell 7.5 0.5
 let map_cell 0.03
-let map_size 1200
+let map_size 1600
 let weight_mode robust
 input uvmap
 
