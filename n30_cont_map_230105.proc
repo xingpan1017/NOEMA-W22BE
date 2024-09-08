@@ -34,6 +34,7 @@ go clean
 vector\fits N30-LSB-cont-230105.fits from N30-LSB-cont-230105.lmv-clean /overwrite
 vector\fits N30-LSB-cont-res-230105.fits from N30-LSB-cont-230105.lmv-res /overwrite
 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !! USB first
 !! Flag the bad channels
 read uv 230105-USB-CygX-N30-MM2.uvt
