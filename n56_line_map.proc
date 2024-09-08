@@ -47,7 +47,7 @@ vector\fits N56-CH3OH-8-08-7-16-selfcal-res.fits from N56-CH3OH-8-08-7-16-selfca
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 read uv N56-LSB-line-selfcal
 uv_extract /frequency 220693.2 /width 50 velo
-write uv N56-CH3CN-12-11-k3
+write uv N56-CH3CN-12-11-k3-selfcal
 
 modify N56-CH3CN-12-11-k3-selfcal.uvt /freq CH3CN-k3 220709.0165 !! unit MHz
 
@@ -73,7 +73,7 @@ vector\fits N56-CH3CN-12-11-k3-selfcal-res.fits from N56-CH3CN-12-11-k3-selfcal.
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 read uv N56-LSB-line-selfcal
 uv_extract /frequency 220660 /width 300 velo
-write uv N56-CH3CN-12-11
+write uv N56-CH3CN-12-11-selfcal
 
 modify N56-CH3CN-12-11-selfcal.uvt /freq CH3CN-k3 220709.0165 !! unit MHz
 
@@ -154,7 +154,7 @@ read uv N56-LSB-line-selfcal
 uv_extract /frequency 219556 /width 60 velo
 write uv N56-C18O-2-1-selfcal
 
-modify N56-C18O-2-1.uvt /freq C18O2-1 219560.358 !! unit MHz
+modify N56-C18O-2-1-selfcal.uvt /freq C18O2-1 219560.358 !! unit MHz
 !! # Apply selfcal and make deeper clean
 let name N56-C18O-2-1-selfcal
 let map_robust 0.5
