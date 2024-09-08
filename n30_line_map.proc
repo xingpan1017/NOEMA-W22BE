@@ -1,1 +1,864 @@
+!! ############################# Image Procedure #############################
+!! Substract continuum emissions
+!! For LSB band
+read uv N30-LSB-filter.uvt
 
+uv_base 0 /frequency 213884 214346 214709 215210 216673 216956 217106 217293 218323 218458 218862 218991 219171 219262 219348 219468 219765 219944 220591 220749 221645 /width 30 velo !! set 30 km/s channels around the frequency list to zero
+
+write uv N30-LSB-line
+
+!! Extract line emissions and generate uv table
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! CH3OH 8(0,8)-7(1,6)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+read uv N30-LSB-line
+uv_extract /frequency 220078 /width 60 velo
+write uv N30-CH3OH-8-08-7-16
+
+modify N30-CH3OH-8-08-7-16.uvt /freq CH3OH-87 220078.561 !! unit MHz
+
+!! Map and clean the uv table
+let name N30-CH3OH-8-08-7-16
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1600
+let fres 0.0125
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits N30-CH3OH-8-08-7-16.fits from N30-CH3OH-8-08-7-16.lmv-clean /overwrite
+vector\fits N30-CH3OH-8-08-7-16-res.fits from N30-CH3OH-8-08-7-16.lmv-res /overwrite
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! CH3CN 12-11 K=3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+read uv N30-LSB-line
+uv_extract /frequency 220708 /width 60 velo
+write uv N30-CH3CN-12-11-k3
+
+modify N30-CH3CN-12-11-k3.uvt /freq CH3CN-k3 220709.0165 !! unit MHz
+
+!! Map and clean
+let name N30-CH3CN-12-11-k3
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1500
+let fres 0.0125
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits N30-CH3CN-12-11-k3.fits from N30-CH3CN-12-11-k3.lmv-clean /overwrite
+vector\fits N30-CH3CN-12-11-k3-res.fits from N30-CH3CN-12-11-k3.lmv-res /overwrite
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! CH3CN 12-11 K=7
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+read uv N30-LSB-line
+uv_extract /frequency 220538.9 /width 60 velo
+write uv N30-CH3CN-12-11-k7
+
+modify N30-CH3CN-12-11-k7.uvt /freq CH3CN-k7 220539.32350 !! unit MHz
+
+!! Map and Clean
+let name N30-CH3CN-12-11-k7
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1500
+let fres 0.0125
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits N30-CH3CN-12-11-k7.fits from N30-CH3CN-12-11-k7.lmv-clean /overwrite
+vector\fits N30-CH3CN-12-11-k7-res.fits from N30-CH3CN-12-11-k7.lmv-res /overwrite
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! CH3CN 12-11
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+read uv N30-LSB-line
+uv_extract /frequency 220670 /width 300 velo
+write uv N30-CH3CN-12-11
+
+modify N30-CH3CN-12-11.uvt /freq CH3CN-k0-8 220747.2612 !! unit MHz
+
+!! Map and Clean
+let name N30-CH3CN-12-11
+let map_cell 0.03
+let map_size 1000
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1500
+let fres 0.0125
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits N30-CH3CN-12-11.fits from N30-CH3CN-12-11.lmv-clean /overwrite
+vector\fits N30-CH3CN-12-11-res.fits from N30-CH3CN-12-11.lmv-res /overwrite
+
+
+!! 13CO 2-1
+read uv N30-LSB-line
+uv_extract /frequency 220402 /width 100 velo
+write uv N30-13CO-2-1
+
+modify N30-13CO-2-1.uvt /freq 13CO 220398.6195 !! unit MHz
+!! Map and Clean
+let name N30-13CO-2-1
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1500
+let fres 0.0125
+input clean
+
+go clean
+!! # export .fits file
+vector\fits N30-13CO-2-1.fits from N30-13CO-2-1.lmv-clean /overwrite
+vector\fits N30-13CO-2-1-res.fits from N30-13CO-2-1.lmv-res /overwrite
+
+!! C18O 2-1
+read uv N30-LSB-line
+uv_extract /frequency 219558 /width 60 velo
+write uv N30-C18O-2-1
+
+modify N30-C18O-2-1.uvt /freq C18O 219560.358 !! unit MHz
+!! Map and Clean
+let name N30-C18O-2-1
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1500
+let fres 0.0125
+input clean
+
+go clean
+!! # export .fits file
+vector\fits N30-C18O-2-1.fits from N30-C18O-2-1.lmv-clean /overwrite
+vector\fits N30-C18O-2-1-res.fits from N30-C18O-2-1.lmv-res /overwrite
+
+
+!! DCN 3-2
+read uv N30-LSB-line
+uv_extract /frequency 217234.14 /width 50 velo
+write uv N30-DCN-3-2
+
+modify N30-DCN-3-2.uvt /freq DCN3-2 217238.6307 !! unit MHz
+!! Map and Clean
+let name N30-DCN-3-2
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 3.0
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1500
+let fres 0.0125
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits N30-DCN-3-2.fits from N30-DCN-3-2.lmv-clean /overwrite
+vector\fits N30-DCN-3-2-res.fits from N30-DCN-3-2.lmv-res /overwrite
+
+
+
+!! HC3N 24-23
+read uv N30-LSB-line
+uv_extract /frequency 219170.59 /width 50 velo
+write uv N30-HC3N-24-23
+
+modify N30-HC3N-24-23.uvt /freq HC3N 219173.7567 !! unit MHz
+!! Map and Clean
+let name N30-HC3N-24-23
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 3.0
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1500
+let fres 0.0125
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits N30-HC3N-24-23.fits from N30-HC3N-24-23.lmv-clean /overwrite
+vector\fits N30-HC3N-24-23-res.fits from N30-HC3N-24-23.lmv-res /overwrite
+
+
+!! Outflow red- and blue-lobe velocity range: blue 7.5~10 km/s red 
+
+!! SiO 5-4
+read uv N30-LSB-line
+uv_extract /frequency 217108.7 /width 120 velo
+write uv N30-SiO-5-4
+
+modify N30-SiO-5-4.uvt /freq SiO5-4 217104.919 !! unit MHz
+
+!! Map and Clean
+let name N30-SiO-5-4
+let map_cell 0.03
+let map_size 1000
+let uv_cell 7.5 3.0
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1500
+let fres 0.0125
+input clean
+
+go clean
+
+
+!! # export .fits file
+vector\fits N30-SiO-5-4.fits from N30-SiO-5-4.lmv-clean /overwrite
+vector\fits N30-SiO-5-4-res.fits from N30-SiO-5-4.lmv-res /overwrite
+
+
+!! H2CO 3-2
+read uv N30-LSB-line
+uv_extract /frequency 218222 /width 80 velo
+write uv N30-H2CO-3-03-2-02
+
+modify N30-H2CO-3-03-2-02.uvt /freq H2CO 218222.192 !! unit MHz
+
+!! Map and Clean
+let name N30-H2CO-3-03-2-02
+let map_cell 0.03
+let map_size 1024
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1500
+let fres 0.0125
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits N30-H2CO-3-03-2-02.fits from N30-H2CO-3-03-2-02.lmv-clean /overwrite
+vector\fits N30-H2CO-3-03-2-02-res.fits from N30-H2CO-3-03-2-02.lmv-res /overwrite
+
+!! H2CO 3-2
+read uv N30-LSB-line
+uv_extract /frequency 218755.95 /width 40 velo
+write uv N30-H2CO-3-21-2-20
+
+modify N30-H2CO-3-21-2-20.uvt /freq H2CO 218760.066 !! unit MHz
+
+!! Map and Clean
+let name N30-H2CO-3-21-2-20
+let map_cell 0.05
+let map_size 800
+let niter 200
+go uvmap
+
+go clean
+
+!! # export .fits file
+vector\fits N30-H2CO-3-21-2-20.fits from N30-H2CO-3-21-2-20.lmv-clean /overwrite
+vector\fits N30-H2CO-3-21-2-20-res.fits from N30-H2CO-3-21-2-20.lmv-res /overwrite
+
+!! H2CO 3-2
+read uv N30-LSB-line
+uv_extract /frequency 218471 /width 40 velo
+write uv N30-H2CO-3-22-2-21
+
+modify N30-H2CO-3-22-2-21.uvt /freq H2CO 218475.632 !! unit MHz
+
+!! Map and Clean
+let name N30-H2CO-3-22-2-21
+let map_cell 0.05
+let map_size 800
+let niter 200
+go uvmap
+
+go clean
+
+!! # export .fits file
+vector\fits N30-H2CO-3-22-2-21.fits from N30-H2CO-3-22-2-21.lmv-clean /overwrite
+vector\fits N30-H2CO-3-22-2-21-res.fits from N30-H2CO-3-22-2-21.lmv-res /overwrite
+
+
+!! H2CO 3-2 total
+read uv N30-LSB-line
+uv_extract /frequency 218450 /width 1000 velo
+write uv N30-H2CO-3-2
+
+modify N30-H2CO-3-2.uvt /freq H2CO 218475.632 !! unit MHz
+
+!! Map and Clean
+let name N30-H2CO-3-2
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1500
+let fres 0.0125
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits N30-H2CO-3-2.fits from N30-H2CO-3-2.lmv-clean /overwrite
+vector\fits N30-H2CO-3-2-res.fits from N30-H2CO-3-2.lmv-res /overwrite
+
+
+!! CH3OCHO 17-16 E
+read uv N30-LSB-line
+uv_extract /frequency 218274.5 /width 50 velo
+write uv N30-CH3OCHO-17-3-14-16-3-13E
+
+modify N30-CH3OCHO-17-3-14-16-3-13E.uvt /freq CH3OCHO17-16E 	218280.9 !! unit MHz
+
+!! Map and Clean
+let name N30-CH3OCHO-17-3-14-16-3-13E
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1500
+let fres 0.0125
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits N30-CH3OCHO-17-3-14-16-3-13E.fits from N30-CH3OCHO-17-3-14-16-3-13E.lmv-clean /overwrite
+vector\fits N30-CH3OCHO-17-3-14-16-3-13E-res.fits from N30-CH3OCHO-17-3-14-16-3-13E.lmv-res /overwrite
+
+!! CH3OCHO 17-16 A
+read uv N30-LSB-line
+uv_extract /frequency 218291.5 /width 50 velo
+write uv N30-CH3OCHO-17-3-14-16-3-13A
+
+modify N30-CH3OCHO-17-3-14-16-3-13A.uvt /freq CH3OCHO  218297.866 !! unit MHz
+
+!! Map and Clean
+let name N30-CH3OCHO-17-3-14-16-3-13A
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1500
+let fres 0.0125
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits N30-CH3OCHO-17-3-14-16-3-13A.fits from N30-CH3OCHO-17-3-14-16-3-13A.lmv-clean /overwrite
+vector\fits N30-CH3OCHO-17-3-14-16-3-13A-res.fits from N30-CH3OCHO-17-3-14-16-3-13A.lmv-res /overwrite
+
+!! NH2CHO
+read uv N30-LSB-line
+uv_extract /frequency 218453.7 /width 50 velo
+write uv N30-NH2CHO-10-9
+
+modify N30-NH2CHO-10-9.uvt /freq NH2CHO 218459.205 !! unit MHz
+
+!! Map and Clean
+let name N30-NH2CHO-10-9
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1500
+let fres 0.0125
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits N30-NH2CHO-10-9.fits from N30-NH2CHO-10-9.lmv-clean /overwrite
+vector\fits N30-NH2CHO-10-9-res.fits from N30-NH2CHO-10-9.lmv-res /overwrite
+
+
+!! CH3CH2CHO 38-38
+read uv N30-LSB-line
+uv_extract /frequency 218678.5 /width 50 velo
+write uv N30-CH3CH2CHO-38-9-38-7
+
+modify N30-CH3CH2CHO-38-9-38-7.uvt /freq CH3CH2CHO 218684.432 !! unit MHz
+
+!! Map and Clean
+let name N30-CH3CH2CHO-38-9-38-7
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1500
+let fres 0.0125
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits N30-CH3CH2CHO-38-9-38-7.fits from N30-CH3CH2CHO-38-9-38-7.lmv-clean /overwrite
+vector\fits N30-CH3CH2CHO-38-9-38-7-res.fits from N30-CH3CH2CHO-38-9-38-7.lmv-res /overwrite
+
+
+!! CH213CHCN 23-22
+read uv N30-LSB-line
+uv_extract /frequency 218319.0 /width 50 velo
+write uv N30-CH213CHCN-23-3-22-3
+
+modify N30-CH213CHCN-23-3-22-3.uvt /freq CH3CH2CHO 218325.5366 !! unit MHz
+
+!! Map and Clean
+let name N30-CH213CHCN-23-3-22-3
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1500
+let fres 0.0125
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits N30-CH213CHCN-23-3-22-3.fits from N30-CH213CHCN-23-3-22-3.lmv-clean /overwrite
+vector\fits N30-CH213CHCN-23-3-22-3-res.fits from N30-CH213CHCN-23-3-22-3.lmv-res /overwrite
+
+
+
+!! CH3OH 8-08-7-16
+read uv N30-LSB-line
+uv_extract /frequency 220080 /width 40 velo
+write uv N30-CH3OH-8-08-7-16
+
+modify N30-CH3OH-8-08-7-16.uvt /freq CH3OH8-7 220078.561 !! unit MHz
+
+!! Map and Clean
+let name N30-CH3OH-8-08-7-16
+let map_cell 0.05
+let map_size 800
+let niter 1500
+!!go uvmap
+
+go clean
+
+!! # export .fits file
+
+vector\fits N30-CH3OH-8-08-7-16.fits from N30-CH3OH-8-08-7-16.lmv-clean /overwrite
+vector\fits N30-CH3OH-8-08-7-16-res.fits from N30-CH3OH-8-08-7-16.lmv-res /overwrite
+
+!! SO-6-5
+read uv N30-LSB-line
+uv_extract /frequency 219950 /width 80 velo
+
+write uv N30-SO-6-5
+modify N30-SO-6-5.uvt /freq SO6-5 219949.442 !! unit MHz
+
+!! Map and Clean
+let name N30-SO-6-5
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1500
+let fres 0.0125
+input clean
+
+go clean
+
+!! # export .fits file
+
+vector\fits N30-SO-6-5.fits from N30-SO-6-5.lmv-clean /overwrite
+vector\fits N30-SO-6-5-res.fits from N30-SO-6-5.lmv-res /overwrite
+
+!! DCO+ 3-2
+read uv N30-LSB-line
+uv_extract /frequency 216110 /width 50 velo
+write uv N30-DCO+-3-2
+
+modify N30-DCO+-3-2.uvt /freq DCO+ 216112.58 !! unit MHz
+!! Map and Clean
+let name N30-DCO+-3-2
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1500
+let fres 0.0125
+input clean
+
+go clean
+!! # export .fits file
+vector\fits N30-DCO+-3-2.fits from N30-DCO+-3-2.lmv-clean /overwrite
+vector\fits N30-DCO+-3-2-res.fits from N30-DCO+-3-2.lmv-res /overwrite
+
+!! OCS 18-17
+read uv N30-LSB-line
+uv_extract /frequency 218896.74 /width 50 velo
+write uv N30-OCS-18-17
+
+modify N30-OCS-18-17.uvt /freq OCS 218903.3555 !! unit MHz
+!! Map and Clean
+let name N30-OCS-18-17
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1500
+let fres 0.0125
+input clean
+
+go clean
+!! # export .fits file
+vector\fits N30-OCS-18-17.fits from N30-OCS-18-17.lmv-clean /overwrite
+vector\fits N30-OCS-18-17-res.fits from N30-OCS-18-17.lmv-res /overwrite
+
+#######################################################################################################
+###########################################################################################################
+!!
+!! # For upper sideband
+read uv w22be001-searchdisk-250kHz-USB-CygX-N30.uvt
+uv_compress 100 !! Get a spectral resolution of 25 km/s to reduce data size
+write uv N30-USB-comp
+
+# Make a quick map and clean for the compressed uv table to check bad channels and line-free channels
+let name N30-USB-comp
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1500
+let fres 0.0125
+input clean
+
+go clean
+
+
+!! ###### Flag the bad channels ##############
+read uv w22be001-searchdisk-250kHz-USB-CygX-N30-MM2.uvt
+
+!! Flag some known spurious lines triggered by the IF processor
+uv_filter /frequency 229376.98 233024.98 233248.98 233472.98 237120.98 /width 10 velo 
+write uv N30-USB-filter
+
+!! ###### Generate USB continuum uv table #############
+read uv N30-USB-filter.uvt
+uv_filter /zero /frequency 235991 230538 /width 80 velo !! set 100 km/s channels around the frequency list to zero
+uv_filter /zero /frequency 237091 237071 237051 236931 236711 236511 236315 236211 235151 234691 234671 234171 233791 232951 232931 232771 232411 231271 231051 230031 230011 229751 229591  /width 20 velo !! set 20 km/s channels around the frequency list to zero
+write uv N30-USB-linefree
+
+read uv N30-USB-linefree
+uv_cont
+write uv N30-USB-cont
+
+!! #######################################################################################
+!! ################# Apply selfcal to the continuum uv table #############################
+!! ################ and trasnfer gain solution to another uv table #######################
+!! #######################################################################################
+!! name N30-USB-linefree
+!! transfer gain solution to N30-USB-cont
+!! make deeper clean for the continuum uv table
+let name N30-USB-cont
+let uv_cell 7.5 0.5
+let map_size 1600
+let map_cell 0.03
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1000
+let fres 0.0125
+input clean
+
+go clean
+
+vector\fits N30-USB-cont.fits from N30-USB-cont.lmv-clean /overwrite
+vector\fits N30-USB-cont-res.fits from N30-USB-cont.lmv-res /overwrite
+
+let name N30-comb-cont
+let uv_cell 7.5 0.5
+let map_size 2400
+let map_cell 0.03
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1500
+let fres 0.0125
+input clean
+
+go clean
+
+vector\fits N30-comb-cont.fits from N30-comb-cont.lmv-clean /overwrite
+vector\fits N30-comb-cont-res.fits from N30-comb-cont.lmv-res /overwrite
+
+
+!! #######################################################################################
+!! ## Merge both sidebands and generate the continuum map
+!! #######################################################################################
+
+
+!! #######################################################################################
+!! ################# Apply selfcal to the line uv table #############################
+!! ################ and trasnfer gain solution to another uv table #######################
+!! #######################################################################################
+!! Substract continuum emissions
+!! For LSB band
+read uv N30-USB-filter.uvt
+
+uv_base 0 /frequency 235991 230538 /width 150 velo !! set 100 km/s channels around the frequency list to zero
+uv_base 0 /frequency 237091 237071 237051 236931 236711 236511 236315 236211 235151 234691 234671 234171 233791 232951 232931 232771 232411 231271 231051 230031 230011 229751 229591  /width 20 velo !! set 20 km/s channels around the frequency list to zero
+
+write uv N30-USB-line
+
+!! CO 2-1
+read uv N30-USB-line
+uv_extract /frequency 230538 /width 120 velo
+write uv N30-CO-2-1
+
+modify N30-CO-2-1.uvt /freq CO2-1 230538.0 !! unit MHz
+!! Map and Clean
+let name N30-CO-2-1
+let map_cell 0.03
+let map_size 1000
+let uv_cell 7.5 3.0
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1500
+let fres 0.0125
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits N30-CO-2-1.fits from N30-CO-2-1.lmv-clean /overwrite
+vector\fits N30-CO-2-1-res.fits from N30-CO-2-1.lmv-res /overwrite
+
+!! CH3OH 8--1-7-0
+read uv N30-USB-line
+uv_extract /frequency 229755 /width 40 velo
+write uv N30-CH3OH-8--1-7-0
+
+modify N30-CH3OH-8--1-7-0.uvt /freq CH3OH8-7 229758.756 !! unit MHz
+!! Map and Clean
+let name N30-CH3OH-8--1-7-0
+let map_cell 0.05
+let map_size 800
+!! go uvmap
+
+let niter 200
+go clean
+!! # export .fits file
+vector\fits N30-CH3OH-8--1-7-0.fits from N30-CH3OH-8--1-7-0.lmv-clean /overwrite
+vector\fits N30-CH3OH-8--1-7-0-res.fits from N30-CH3OH-8--1-7-0.lmv-res /overwrite
+
+!! D2CO 4-3
+read uv N30-USB-line
+uv_extract /frequency 229755 /width 60 velo
+write uv N30-D2CO-4-04-3-03
+
+modify N30-D2CO-4-04-3-03.uvt /freq D2CO4-3 229758.756 !! unit MHz
+!! Map and Clean
+let name N30-D2CO-4-04-3-03
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1500
+let fres 0.0125
+input clean
+
+go clean
+!! # export .fits file
+vector\fits N30-D2CO-4-04-3-03.fits from N30-D2CO-4-04-3-03.lmv-clean /overwrite
+vector\fits N30-D2CO-4-04-3-03-res.fits from N30-D2CO-4-04-3-03.lmv-res /overwrite
+
+!! DNC 3-2
+read uv N30-USB-line
+uv_extract /frequency 228907 /width 40 velo
+write uv N30-DNC-3-2
+
+modify N30-DNC-3-2.uvt /freq DNC3-2 228910.489 !! unit MHz
+!! Map and Clean
+let name N30-DNC-3-2
+let map_cell 0.05
+let map_size 600
+go uvmap
+
+let niter 200
+go clean
+!! # export .fits file
+vector\fits N30-DNC-3-2.fits from N30-DNC-3-2.lmv-clean /overwrite
+vector\fits N30-DNC-3-2-res.fits from N30-DNC-3-2.lmv-res /overwrite
+
+!! 13CS 5-4
+read uv N30-USB-line
+uv_extract /frequency 231218 /width 60 velo
+write uv N30-13CS-5-4
+
+modify N30-13CS-5-4.uvt /freq 13CS5-4 231220.6987 !! unit MHz
+!! Map and Clean
+let name N30-13CS-5-4
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1500
+let fres 0.0125
+input clean
+
+go clean
+!! # export .fits file
+vector\fits N30-13CS-5-4.fits from N30-13CS-5-4.lmv-clean /overwrite
+vector\fits N30-13CS-5-4-res.fits from N30-13CS-5-4.lmv-res /overwrite
+
+!! N2D+ 3-2
+read uv N30-USB-line
+uv_extract /frequency 231315 /width 60 velo
+write uv N30-N2D+-3-2
+
+modify N30-N2D+-3-2.uvt /freq N2D+ 231321.6650 !! unit MHz
+!! Map and Clean
+let name N30-N2D+-3-2
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1500
+let fres 0.0125
+input clean
+
+go clean
+!! # export .fits file
+vector\fits N30-N2D+-3-2.fits from N30-N2D+-3-2.lmv-clean /overwrite
+vector\fits N30-N2D+-3-2-res.fits from N30-N2D+-3-2.lmv-res /overwrite
+
+!! CH2CHCN 12-11
+read uv N30-USB-line
+uv_extract /frequency 232026.5 /width 60 velo
+write uv N30-CH2CHCN-12-2-11-1
+
+modify N30-CH2CHCN-12-2-11-1.uvt /freq CH2CHCN 232032.80290 !! unit MHz
+!! Map and Clean
+let name N30-CH2CHCN-12-2-11-1
+let map_cell 0.03
+let map_size 800
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1500
+let fres 0.0125
+input clean
+
+go clean
+!! # export .fits file
+vector\fits N30-CH2CHCN-12-2-11-1.fits from N30-CH2CHCN-12-2-11-1.lmv-clean /overwrite
+vector\fits N30-CH2CHCN-12-2-11-1-res.fits from N30-CH2CHCN-12-2-11-1.lmv-res /overwrite
