@@ -1,1 +1,71 @@
+!! Image Procedure 
+!! LSB first
+!! Flag the bad channels
+read uv 230105-LSB-CygX-N30-MM2.uvt
+!! Flag spurious lines triggered by the IF processor
+uv_filter /frequency 221632.98 217984.98 217760.98 217536.98 213888.98 /width 10 velo
 
+write uv N30-LSB-filter-230105
+
+!! ###### Generate LSB continuum uv table #############
+read uv N30-LSB-filter-230105.uvt
+uv_filter /zero /frequency 213884 214346 214709 215210 216673 216956 217106 217293 218323 218458 218862 218991 219171 219262 219348 219468 219765 219944 220591 220749 221645 /width 20 velo !! set 20 km/s channels around the frequency list to zero
+write uv N30-LSB-linefree-230105
+
+read uv N30-LSB-linefree-230105
+uv_cont
+write uv N30-LSB-cont-230105
+
+let name N30-LSB-cont-230105
+let map_cell 0.03
+let map_size 1600
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1000
+let fres 0.0125
+input clean
+
+go clean
+
+vector\fits N30-LSB-cont-230105.fits from N30-LSB-cont-230105.lmv-clean /overwrite
+vector\fits N30-LSB-cont-res-230105.fits from N30-LSB-cont-230105.lmv-res /overwrite
+
+!! USB first
+!! Flag the bad channels
+read uv 230105-USB-CygX-N30-MM2.uvt
+!! Flag spurious lines triggered by the IF processor
+uv_filter /frequency 229376.98 233024.98 233248.98 233472.98 237120.98 /width 10 velo 
+
+write uv N30-USB-filter-230105
+
+!! ###### Generate USB continuum uv table #############
+read uv N30-USB-filter-230105.uvt
+uv_filter /frequency 235991 230538 /width 80 velo !! set 100 km/s channels around the frequency list to zero
+uv_filter /frequency 237091 237071 237051 236931 236711 236511 236315 236211 235151 234691 234671 234171 233791 232951 232931 232771 232411 231271 231051 230031 230011 229751 229591  /width 20 velo !! set 20 km/s channels around the frequency list to zero
+write uv N30-USB-linefree-230105
+
+read uv N30-USB-linefree-230105
+uv_cont
+write uv N30-USB-cont-230105
+
+let name N30-USB-cont-230105
+let map_cell 0.03
+let map_size 1600
+let uv_cell 7.5 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1000
+let fres 0.0125
+input clean
+
+go clean
+
+vector\fits N30-USB-cont-230105.fits from N30-USB-cont-230105.lmv-clean /overwrite
+vector\fits N30-USB-cont-res-230105.fits from N30-USB-cont-230105.lmv-res /overwrite
