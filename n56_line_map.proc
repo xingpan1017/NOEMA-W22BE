@@ -1,11 +1,11 @@
 !! Image Line emission
 !! Substract continuum emissions
 !! For LSB band
-read uv N56-LSB-filter.uvt
+!!read uv N56-LSB-filter.uvt
 
-uv_base 0 /frequency 221622 220386 219928 215199 213885  /width 20 velo !! set 100 km/s channels around the frequency list to zero
+!!uv_base 0 /frequency 221622 220386 219928 215199 213885  /width 20 velo !! set 100 km/s channels around the frequency list to zero
 
-write uv N56-LSB-line
+!!write uv N56-LSB-line
 
 !! Apply the selfcal solution from cont to the line uv table
 !! Get N56-LSB-line-selfcal
@@ -345,11 +345,11 @@ vector\fits N56-DCN-3-2-selfcal-res.fits from N56-DCN-3-2-selfcal.lmv-res /overw
 !!
 !! For upper sideband
 
-read uv N56-USB-filter.uvt
-uv_base 0 /frequency 230510 /width 100 velo !! set 100 km/s channels around the frequency list to zero
-uv_base 0 /frequency 237269 237106 235720 229371 229237 /width 20 velo !! set 100 km/s channels around the frequency list to zero
+!!read uv N56-USB-filter.uvt
+!!uv_base 0 /frequency 230510 /width 100 velo !! set 100 km/s channels around the frequency list to zero
+!!uv_base 0 /frequency 237269 237106 235720 229371 229237 /width 20 velo !! set 100 km/s channels around the frequency list to zero
 
-write uv N56-USB-line
+!!write uv N56-USB-line
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !! CO 2-1
