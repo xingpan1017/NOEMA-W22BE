@@ -26,7 +26,7 @@ modify N56-CH3OH-8-08-7-16-selfcal.uvt /freq CH3OH-87 220078.561 !! unit MHz
 let name N56-CH3OH-8-08-7-16-selfcal
 let map_cell 0.03
 let map_size 800
-let map_uvcell 7.5 0.5
+let uv_cell 7.5 0.5
 let weight_mode robust
 input uvmap
 
@@ -53,7 +53,7 @@ modify N56-CH3CN-12-11-k3-selfcal.uvt /freq CH3CN-k3 220709.0165 !! unit MHz
 
 !! # Apply selfcal and make deeper clean
 let name N56-CH3CN-12-11-k3-selfcal
-let map_uvcell 7.5 0.5
+let uv_cell 7.5 0.5
 let weight_mode robust
 input uvmap
 
@@ -79,7 +79,7 @@ modify N56-CH3CN-12-11-selfcal.uvt /freq CH3CN-k3 220709.0165 !! unit MHz
 
 !! # Apply selfcal and make deeper clean
 let name N56-CH3CN-12-11-selfcal
-let map_uvcell 7.5 0.5
+let uv_cell 7.5 0.5
 let weight_mode robust
 input uvmap
 
@@ -107,7 +107,7 @@ modify N56-CH3OH-4-22-3-12-selfcal.uvt /freq CH3OH-43 218440.0630 !! unit MHz
 let name N56-CH3OH-4-22-3-12-selfcal
 let map_cell 0.03
 let map_size 800
-let map_uvcell 7.5 0.5
+let uv_cell 7.5 0.5
 let weight_mode robust
 input uvmap
 
@@ -132,7 +132,7 @@ write uv N56-13CO-2-1-selfcal
 modify N56-13CO-2-1-selfcal.uvt /freq 13CO2-1 220398.6195 !! unit MHz
 !! # Apply selfcal and make deeper clean
 let name N56-13CO-2-1-selfcal
-let map_uvcell 7.5 0.5
+let uv_cell 7.5 0.5
 let weight_mode robust
 input uvmap
 
@@ -157,7 +157,7 @@ write uv N56-C18O-2-1-selfcal
 modify N56-C18O-2-1-selfcal.uvt /freq C18O2-1 219560.358 !! unit MHz
 !! # Apply selfcal and make deeper clean
 let name N56-C18O-2-1-selfcal
-let map_uvcell 7.5 0.5
+let uv_cell 7.5 0.5
 let weight_mode robust
 input uvmap
 
@@ -219,7 +219,7 @@ modify N56-H2CO-3-2-selfcal.uvt /freq H2CO-3-2 218475.632 !! unit MHz
 let name N56-H2CO-3-2-selfcal
 let map_cell 0.03
 let map_size 800
-let map_uvcell 7.5 0.5
+let uv_cell 7.5 0.5
 let weight_mode robust
 input uvmap
 
@@ -303,7 +303,7 @@ modify N56-DCN-3-2-selfcal.uvt /freq DCN-3-2 217238.6307 !! unit MHz
 
 !! # Apply selfcal and make deeper clean
 let name N56-DCN-3-2-selfcal
-let map_uvcell 7.5 0.5
+let uv_cell 7.5 0.5
 let map_cell 0.03
 let map_size 800
 
@@ -363,7 +363,7 @@ modify N56-CO-2-1-selfcal.uvt /freq CO2-1 230538 !! unit MHz
 let name N56-CO-2-1-selfcal
 let map_cell 0.03
 let map_size 1600
-let map_robust 3.0
+let uv_cell 7.5 0.5
 let weight_mode robust
 input uvmap
 
@@ -391,7 +391,7 @@ modify N56-CH3OH-8--1-7-0-selfcal.uvt /freq CH3OH8-7 229758.756 !! unit MHz
 let name N56-CH3OH-8--1-7-0-selfcal
 let map_cell 0.05
 let map_size 800
-let map_uvcell 7.5 0.5
+let uv_cell 7.5 0.5
 let weight_mode robust
 
 go uvmap
