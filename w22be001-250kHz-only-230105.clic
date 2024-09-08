@@ -1,0 +1,104 @@
+!------------------------------------------------------------------ 
+! w22be001-searchdisk.clic 
+! Line table procedure created by krips 2022-12-26 14:45:03 
+!------------------------------------------------------------------ 
+set default 
+set gibbs 0
+set averag scan 
+set amplitude   antenna relative 
+set phase       antenna relative atmosphere 
+set rf          antenna on 
+set quality 	   average 
+set receiver 3
+set type 	   object 
+set procedure corr 
+set level 6 
+set drop 0.002 0
+
+
+set rf on spectrum file 1
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+file in 05-jan-2023-w22be001.hpb
+
+
+set selection line USB l11 and l12 and l15 and l16
+find /source CygX-N30-MM2
+if found.gt.0 then 
+  list /short 
+  table 230105-USB-CygX-N30-MM2 NEW
+end if
+
+set selection line LSB l09 and l10 and l13 and l14
+find /source CygX-N30-MM2 
+if found.gt.0 then 
+  list /short 
+  table 230105-LSB-CygX-N30-MM2 NEW
+end if
+ 
+set selection line USB l11 and l12 and l15 and l16
+find /source CygX-NW14 
+if found.gt.0 then 
+  list /short 
+  table 230105-USB-CygX-NW14 NEW
+end if
+set selection line LSB l09 and l10 and l13 and l14
+find /source CygX-NW14 
+if found.gt.0 then 
+  list /short 
+  table 230105-LSB-CygX-NW14 NEW
+end if
+ 
+set selection line USB l11 and l12 and l15 and l16
+find /source CygX-N63 
+if found.gt.0 then 
+  list /short 
+  table 230105-USB-CygX-N63 NEW
+end if
+set selection line LSB l09 and l10 and l13 and l14
+find /source CygX-N63
+if found.gt.0 then 
+  list /short 
+  table 230105-LSB-CygX-N63 NEW
+end if
+ 
+set selection line USB l11 and l12 and l15 and l16
+find /source CygX-S10 
+if found.gt.0 then 
+  list /short 
+  table 230105-USB-CygX-S10 NEW
+end if
+set selection line LSB l09 and l10 and l13 and l14
+find /source CygX-S10 
+if found.gt.0 then 
+  list /short 
+  table 230105-LSB-CygX-S10 NEW
+end if
+ 
+set selection line USB l11 and l12 and l15 and l16
+find /source CygX-N68
+if found.gt.0 then 
+  list /short 
+  table 230105-USB-CygX-N68 NEW
+end if
+set selection line LSB l09 and l10 and l13 and l14
+find /source CygX-N68
+if found.gt.0 then 
+  list /short 
+  table 230105-LSB-CygX-N68 NEW
+end if
+ 
+set selection line USB l11 and l12 and l15 and l16
+find /source CygX-N56 
+if found.gt.0 then 
+  list /short 
+  table 230105-USB-CygX-N56 NEW
+end if
+set selection line LSB l09 and l10 and l13 and l14
+find /source CygX-N56 
+if found.gt.0 then 
+  list /short 
+  table 230105-LSB-CygX-N56 NEW
+end if
+ 
