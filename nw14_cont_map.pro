@@ -617,8 +617,8 @@ write uv NW14-USB-filter
 !! ###### Generate USB continuum uv table #############
 read uv NW14-USB-filter.uvt
 
-uv_filter /zero /frequency 230547  /width 80 velo !! set 80 km/s channels around the frequency list to zero
-uv_filter /zero /frequency 237120 236932 236727 236529 236363 236220 235999 235371 235150 234673 232418 231969 231271 231055 230376 229864 229751 229590 229380 /width 20 velo 
+uv_filter /frequency 230547  /width 80 velo !! set 80 km/s channels around the frequency list to zero
+uv_filter /frequency 237120 236932 236727 236529 236363 236220 235999 235371 235150 234673 232418 231969 231271 231055 230376 229864 229751 229590 229380 /width 20 velo 
 !! set 20 km/s channels around the frequency list to zero
 write uv NW14-USB-linefree
 
@@ -640,7 +640,7 @@ input uvmap
 
 go uvmap
 
-let niter 1000
+let niter 1500
 let fres 0.0125
 input clean
 
