@@ -144,12 +144,14 @@ write uv N63-LSB-cont
 !! make deeper clean for the continuum uv table
 let name N63-LSB-cont-selfcal
 let uv_cell 7.5 0.5
+let map_cell 0.03
+let map_size 1600
 let weight_mode robust
 input uvmap
 
 go uvmap
 
-let niter 500
+let niter 1500
 let fres 0.0125
 input clean
 
@@ -729,11 +731,33 @@ write uv N63-USB-cont
 let name N63-USB-cont-selfcal
 
 let uv_cell 7.5 0.5
+let map_cell 0.03
+let map_size 1600
 let weight_mode robust
 input uvmap
 go uvmap
 
-let niter 1000
+let niter 1500
+let fres 0.0125
+input clean
+
+go clean
+
+vector\fits N63-USB-cont-selfcal.fits from N63-USB-cont-selfcal.lmv-clean /overwrite
+vector\fits N63-USB-cont-selfcal-res.fits from N63-USB-cont-selfcal.lmv-res /overwrite
+
+go uv_merge
+
+let name N63-comb-cont-selfcal
+
+let uv_cell 7.5 0.5
+let map_cell 0.03
+let map_size 1600
+let weight_mode robust
+input uvmap
+go uvmap
+
+let niter 2000
 let fres 0.0125
 input clean
 
