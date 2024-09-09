@@ -1,0 +1,370 @@
+!! Substract continuum emissions
+!! For LSB band
+!!read uv N63-LSB-filter.uvt
+
+!!uv_base 0 /frequency 221635 220744 220403 219966 218451 218221 217112 215232 213889 /width 20 velo !! set 20 km/s channels around the frequency list to zero
+
+!!write uv N63-LSB-line
+
+!! Apply selfcal solution from continuum to the line uv table
+
+!! Extract line emissions
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! CH3OH 8(0,8)-7(1,6)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+read uv N63-LSB-line-selfcal
+uv_extract /frequency 220082 /width 60 velo
+write uv N63-CH3OH-8-08-7-16-selfcal
+
+modify N63-CH3OH-8-08-7-16-selfcal.uvt /freq CH3OH-87 220078.561 !! unit MHz
+
+!! # Apply selfcal and make deeper clean
+let name N63-CH3OH-8-08-7-16-selfcal
+let map_cell 0.03
+let map_size 800
+let map_robust 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 800
+let ares 0.005
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits N63-CH3OH-8-08-7-16-selfcal.fits from N63-CH3OH-8-08-7-16-selfcal.lmv-clean /overwrite
+vector\fits N63-CH3OH-8-08-7-16-selfcal-res.fits from N63-CH3OH-8-08-7-16-selfcal.lmv-res /overwrite
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! CH3CN 12-11 K=3
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+read uv N63-LSB-line-selfcal
+uv_extract /frequency 220713.2 /width 40 velo
+write uv N63-CH3CN-12-11-k3-selfcal
+
+modify N63-CH3CN-12-11-k3-selfcal.uvt /freq CH3CN-k3 220709.0165 !! unit MHz
+
+!! # Apply selfcal and make deeper clean
+let name N63-CH3CN-12-11-k3-selfcal
+let map_robust 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+input clean
+let niter 1000
+let ares 0.005
+go clean
+!! # export .fits file
+vector\fits N63-CH3CN-12-11-k3-selfcal.fits from N63-CH3CN-12-11-k3-selfcal.lmv-clean /overwrite
+vector\fits N63-CH3CN-12-11-k3-selfcal-res.fits from N63-CH3CN-12-11-k3-selfcal.lmv-res /overwrite
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! CH3CN 12-11
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+read uv N63-LSB-line-selfcal
+uv_extract /frequency 220670 /width 300 velo
+write uv N63-CH3CN-12-11-selfcal
+
+modify N63-CH3CN-12-11-selfcal.uvt /freq CH3CN-k0-8 220747.2612 !! unit MHz
+
+!! # Apply selfcal and make deeper clean
+let name N63-CH3CN-12-11-selfcal
+let map_cell 0.03
+let map_size 800
+let map_robust 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+input clean
+let niter 1000
+let ares 0.005
+go clean
+
+!! # export .fits file
+vector\fits N63-CH3CN-12-11-selfcal.fits from N63-CH3CN-12-11-selfcal.lmv-clean /overwrite
+vector\fits N63-CH3CN-12-11-selfcal-res.fits from N63-CH3CN-12-11-selfcal.lmv-res /overwrite
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! 13CO 2-1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+read uv N63-LSB-line-selfcal
+uv_extract /frequency 220402 /width 80 velo
+write uv N63-13CO-2-1-selfcal
+
+modify N63-13CO-2-1-selfcal.uvt /freq 13CO2-1 220398.6195 !! unit MHz
+!! # Apply selfcal and make deeper clean
+let name N63-13CO-2-1-selfcal
+let map_robust 0.5
+let map_cell 0.03
+let map_size 800
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1000
+let ares 0.005
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits N63-13CO-2-1-selfcal.fits from N63-13CO-2-1-selfcal.lmv-clean /overwrite
+vector\fits N63-13CO-2-1-selfcal-res.fits from N63-13CO-2-1-selfcal.lmv-res /overwrite
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! C18O 2-1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+read uv N63-LSB-line-selfcal
+uv_extract /frequency 219560 /width 60 velo
+write uv N63-C18O-2-1-selfcal
+
+modify N63-C18O-2-1-selfcal.uvt /freq C18O2-1 219560.358 !! unit MHz
+!! # Apply selfcal and make deeper clean
+let name N63-C18O-2-1-selfcal
+let map_cell 0.03
+let map_size 800
+let map_robust 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1000
+let ares 0.005
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits N63-C18O-2-1-selfcal.fits from N63-C18O-2-1-selfcal.lmv-clean /overwrite
+vector\fits N63-C18O-2-1-selfcal-res.fits from N63-C18O-2-1-selfcal.lmv-res /overwrite
+
+!! Outflow red- and blue-lobe velocity range: blue 7.5~10 km/s red 
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! SiO 5-4
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+read uv N63-LSB-line-selfcal
+uv_extract /frequency 217108.7 /width 120 velo
+write uv N63-SiO-5-4-selfcal
+
+modify N63-SiO-5-4-selfcal.uvt /freq SiO5-4 217104.919 !! unit MHz
+
+!! # Apply selfcal and make deeper clean
+let name N63-SiO-5-4-selfcal
+let map_cell 0.03
+let map_size 1500
+let uv_cell 7.5 3.0
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1000
+let ares 0.005
+input clean
+
+go clean
+
+
+!! # export .fits file
+vector\fits N63-SiO-5-4-selfcal.fits from N63-SiO-5-4-selfcal.lmv-clean /overwrite
+vector\fits N63-SiO-5-4-selfcal-res.fits from N63-SiO-5-4-selfcal.lmv-res /overwrite
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! H2CO 3-2 total
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! read uv N63-LSB-line-selfcal
+!! uv_extract /frequency 218450 /width 1000 velo
+!! write uv N63-H2CO-3-2-selfcal
+
+!! modify N63-H2CO-3-2-selfcal.uvt /freq H2CO-3-2 218475.632 !! unit MHz
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! CH3OCHO 17-16 E
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! read uv N63-LSB-line-selfcal
+!! uv_extract /frequency 218284.7 /width 50 velo
+!! write uv N63-CH3OCHO-17-3-14-16-3-13E-selfcal
+
+!! modify N63-CH3OCHO-17-3-14-16-3-13E-selfcal.uvt /freq CH3OCHO 	218280.9 !! unit MHz
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! CH3OCHO 17-16 A
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! read uv N63-LSB-line-selfcal
+!! uv_extract /frequency 218301.4 /width 50 velo
+!! write uv N63-CH3OCHO-17-3-14-16-3-13A-selfcal
+
+!! modify N63-CH3OCHO-17-3-14-16-3-13A-selfcal.uvt /freq CH3OCHO  218297.866 !! unit MHz
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! NH2CHO
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! read uv N63-LSB-line-selfcal
+!! uv_extract /frequency 218453.7 /width 50 velo
+!! write uv N63-NH2CHO-10-9-selfcal
+
+!! modify N63-NH2CHO-10-9-selfcal.uvt /freq NH2CHO 218459.205 !! unit MHz
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! CH3CH2CHO 38-38
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!read uv N63-LSB-line-selfcal
+!!uv_extract /frequency 218678.5 /width 50 velo
+!!write uv N63-CH3CH2CHO-38-9-38-7-selfcal
+
+!!modify N63-CH3CH2CHO-38-9-38-7-selfcal.uvt /freq CH3CH2CHO 218684.432 !! unit MHz
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! CH213CHCN 23-22
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!read uv N63-LSB-line-selfcal
+!!uv_extract /frequency 218327.0 /width 50 velo
+!!write uv N63-CH213CHCN-23-3-22-3-selfcal
+
+!!modify N63-CH213CHCN-23-3-22-3-selfcal.uvt /freq CH213CHCN 218325.5366 !! unit MHz
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! SO-6-5
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+read uv N63-LSB-line-selfcal
+uv_extract /frequency 219950 /width 40 velo
+write uv N63-SO-6-5-selfcal
+
+modify N63-SO-6-5-selfcal.uvt /freq CH3OH8-7 219949.442 !! unit MHz
+
+!! # Apply selfcal and make deeper clean
+let name N63-SO-6-5-selfcal
+let map_cell 0.03
+let map_size 800
+let map_robust 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1000
+let ares 0.005
+input clean
+
+go clean
+
+!! # export .fits file
+
+vector\fits N63-SO-6-5-selfcal.fits from N63-SO-6-5-selfcal.lmv-clean /overwrite
+vector\fits N63-SO-6-5-selfcal-res.fits from N63-SO-6-5-selfcal.lmv-res /overwrite
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! DCN 3-2
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+read uv N63-LSB-line-selfcal
+uv_extract /frequency 217241.70 /width 50 velo
+write uv N63-DCN-3-2-selfcal
+
+modify N63-DCN-3-2-selfcal.uvt /freq CH3OH8-7 217238.6307 !! unit MHz
+
+!! # Apply selfcal and make deeper clean
+let name N63-DCN-3-2-selfcal
+let map_cell 0.03
+let map_size 800
+let map_robust 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1000
+let ares 0.005
+input clean
+
+go clean
+
+!! # export .fits file
+
+vector\fits N63-DCN-3-2-selfcal.fits from N63-DCN-3-2-selfcal.lmv-clean /overwrite
+vector\fits N63-DCN-3-2-selfcal-res.fits from N63-DCN-3-2-selfcal.lmv-res /overwrite
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! HC3N
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!read uv N63-LSB-line-selfcal
+!!uv_extract /frequency 218327.20 /width 50 velo
+!!write uv N63-HC3N-24-23-selfcal
+
+!!modify N63-HC3N-24-23-selfcal.uvt /freq HC3N 218324.723 !! unit MHz
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! OCS 18-17
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!read uv N63-LSB-line-selfcal
+!!uv_extract /frequency 218907.58 /width 50 velo
+!!write uv N63-OCS-18-17-selfcal
+
+!!modify N63-OCS-18-17-selfcal.uvt /freq OCS 218903.3555 !! unit MHz
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! Substract continuum emissions
+!! For USB band
+!!read uv N63-USB-filter.uvt
+
+!!uv_base 0 /frequency 230544 /width 100 velo !! set 100 km/s channels around the frequency list to zero
+!!uv_base 0 /frequency 237115 236013 230544 229776 229376 /width 30 velo !! set 30 km/s channels around the frequency list to zero
+
+!!write uv N63-USB-line
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! CO 2-1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+read uv N63-USB-line-selfcal
+uv_extract /frequency 230541.8 /width 120 velo
+write uv N63-CO-2-1-selfcal
+
+modify N63-CO-2-1-selfcal.uvt /freq CO2-1 230538.0 !! unit MHz
+!! # Apply selfcal and make deeper clean
+let name N63-CO-2-1-selfcal
+let map_cell 0.03
+let map_size 1000
+let map_robust 3.0
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 1000
+let ares 0.005
+input clean
+
+go clean
+!! # export .fits file
+vector\fits N63-CO-2-1-selfcal.fits from N63-CO-2-1-selfcal.lmv-clean /overwrite
+vector\fits N63-CO-2-1-selfcal-res.fits from N63-CO-2-1-selfcal.lmv-res /overwrite
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! CH3OH 8--1-7-0
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+read uv N63-USB-line
+uv_extract /frequency 229780 /width 60 velo
+write uv N63-CH3OH-8--1-7-0-selfcal
+
+modify N63-CH3OH-8--1-7-0-selfcal.uvt /freq CH3OH8-7 229758.756 !! unit MHz
+!! # Apply selfcal and make deeper clean
+let name N63-CH3OH-8--1-7-0-selfcal
+let map_cell 0.05
+let map_size 800
+go uvmap
+
+let niter 800
+let ares 0.005
+go clean
+!! # export .fits file
+vector\fits N63-CH3OH-8--1-7-0-selfcal.fits from N63-CH3OH-8--1-7-0-selfcal.lmv-clean /overwrite
+vector\fits N63-CH3OH-8--1-7-0-selfcal-res.fits from N63-CH3OH-8--1-7-0-selfcal.lmv-res /overwrite
