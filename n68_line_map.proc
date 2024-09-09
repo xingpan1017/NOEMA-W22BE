@@ -21,7 +21,7 @@ modify N68-CH3CN-12-11-selfcal.uvt /freq CH3CN 220747.26120 !! unit MHz
 !! # Apply selfcal and make deeper clean
 let name N68-CH3CN-12-11-selfcal
 let map_cell 0.03
-let map_size 1600
+let map_size 800
 let map_robust 0.5
 let weight_mode robust
 input uvmap
@@ -50,7 +50,7 @@ modify N68-CH3CN-12-11-k3-selfcal.uvt /freq CH3CN-k3 220709.0165 !! unit MHz
 !! # Apply selfcal and make deeper clean
 let name N68-CH3CN-12-11-k3-selfcal
 let map_cell 0.03
-let map_size 1600
+let map_size 800
 let map_robust 0.5
 let weight_mode robust
 input uvmap
@@ -79,7 +79,7 @@ modify N68-13CO-2-1-selfcal.uvt /freq 13CO2-1 220398.6195 !! unit MHz
 let name N68-13CO-2-1-selfcal
 let map_robust 0.5
 let weight_mode robust
-let map_size 1600
+let map_size 800
 input uvmap
 
 go uvmap
@@ -104,7 +104,7 @@ modify N68-C18O-2-1.uvt /freq C18O2-1 219560.358 !! unit MHz
 !! # Apply selfcal and make deeper clean
 let name N68-C18O-2-1-selfcal
 let map_cell 0.05
-let map_size 1600
+let map_size 800
 let map_robust 0.5
 go uvmap
 
@@ -137,7 +137,7 @@ modify N68-SiO-5-4-selfcal.uvt /freq SiO5-4 217104.919 !! unit MHz
 !! # Apply selfcal and make deeper clean
 let name N68-SiO-5-4-selfcal
 let map_cell 0.03
-let map_size 1600
+let map_size 800
 let map_robust 0.5
 let weight_mode robust
 input uvmap
@@ -166,7 +166,7 @@ modify N68-H2CO-3-2-selfcal.uvt /freq H2CO-3-2 218475.632 !! unit MHz
 !! # Apply selfcal and make deeper clean
 let name N68-H2CO-3-2-selfcal
 let map_cell 0.03
-let map_size 1600
+let map_size 800
 let map_robust 0.5
 let weight_mode robust
 input uvmap
@@ -196,7 +196,7 @@ modify N68-DCN-3-2-selfcal.uvt /freq DCN3-2 217238.63070 !! unit MHz
 let name N68-DCN-3-2-selfcal
 let map_robust 0.5
 let weight_mode robust
-let map_size 1600
+let map_size 800
 input uvmap
 
 go uvmap
@@ -224,7 +224,7 @@ modify N68-CH3OH-8-08-7-16-selfcal.uvt /freq CH3OH8-7 220078.561 !! unit MHz
 let name N68-CH3OH-8-08-7-16-selfcal
 let map_robust 0.5
 let weight_mode robust
-let map_size 1600
+let map_size 800
 input uvmap
 
 go uvmap
@@ -253,7 +253,7 @@ modify N68-CH3OH-4-2-3-1-selfcal.uvt /freq CH3OH4-3 218440.063 !! unit MHz
 let name N68-CH3OH-4-2-3-1-selfcal
 let map_robust 0.5
 let weight_mode robust
-let map_size 1600
+let map_size 800
 input uvmap
 
 go uvmap
@@ -281,7 +281,7 @@ modify N68-SO-6-5.uvt /freq CH3OH8-7 219949.442 !! unit MHz
 !! # Apply selfcal and make deeper clean
 let name N68-SO-6-5-selfcal
 let map_cell 0.05
-let map_size 1600
+let map_size 800
 let map_robust 0.5
 let niter 800
 let ares 0.005
@@ -341,7 +341,7 @@ modify N68-CH3OH-8--1-7-0-selfcal.uvt /freq CH3OH8-7 229758.756 !! unit MHz
 !! # Apply selfcal and make deeper clean
 let name N68-CH3OH-8--1-7-0-selfcal
 let map_cell 0.03
-let map_size 1600
+let map_size 800
 let map_robust 0.5
 let weight_mode robust
 input uvmap
@@ -368,7 +368,7 @@ modify N68-N2D+-3-2.uvt /freq N2D+ 231319.97970 !! unit MHz
 !! # Apply selfcal and make deeper clean
 let name N68-N2D+-3-2-selfcal
 let map_cell 0.05
-let map_size 1600
+let map_size 800
 go uvmap
 
 let niter 800
