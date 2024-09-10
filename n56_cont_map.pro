@@ -609,7 +609,7 @@ input uvmap
 go uvmap
 
 let niter 2000
-let fres 0.0125
+let ares 0.0002
 input clean
 
 go clean
@@ -618,16 +618,16 @@ vector\fits N56-USB-cont-selfcal.fits from N56-USB-cont-selfcal.lmv-clean /overw
 vector\fits N56-USB-cont-selfcal-res.fits from N56-USB-cont-selfcal.lmv-res /overwrite
 
 let name N56-comb-cont-selfcal
-let uv_cell 7.5 0.5
+let map_robust 0.5
 let map_cell 0.03
-let map_size 2048
+let map_size 1600
 let weight_mode robust
 input uvmap
 
 go uvmap
 
-let niter 2000
-let fres 0.0125
+let niter 3000
+let ares 0.0001
 input clean
 
 go clean
