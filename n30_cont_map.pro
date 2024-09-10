@@ -876,15 +876,15 @@ vector\fits N30-USB-cont-selfcal-res.fits from N30-USB-cont-selfcal.lmv-res /ove
 
 let name N30-comb-cont-selfcal
 let uv_cell 7.5 0.5
-let map_size 2400
+let map_size 1600
 let map_cell 0.03
 let weight_mode robust
 input uvmap
 
 go uvmap
 
-let niter 1500
-let fres 0.0125
+let niter 2000
+let ares 0.0005
 input clean
 
 go clean
