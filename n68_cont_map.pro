@@ -608,7 +608,7 @@ input uvmap
 go uvmap
 
 let niter 2000
-let fres 0.0125
+let ares 0.00015
 input clean
 
 go clean
