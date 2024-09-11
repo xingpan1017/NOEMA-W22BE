@@ -29,7 +29,7 @@ input uvmap
 go uvmap
 
 let niter 1000
-let ares 0.005
+let fres 0.01
 input clean
 
 go clean
@@ -58,7 +58,7 @@ input uvmap
 go uvmap
 
 let niter 800
-let ares 0.005
+let fres 0.01
 input clean
 
 go clean
@@ -87,7 +87,7 @@ input uvmap
 go uvmap
 
 let niter 1000
-let ares 0.005
+let fres 0.01
 input clean
 
 go clean
@@ -120,7 +120,7 @@ let map_robust 0.5
 !!go uvmap
 
 let niter 800
-let ares 0.005
+let fres 0.01
 go clean
 !! # export .fits file
 vector\fits NW14-13CO-2-1-selfcal.fits from NW14-13CO-2-1-selfcal.lmv-clean /overwrite
@@ -141,7 +141,7 @@ let map_size 800
 !!go uvmap
 
 let niter 800
-let ares 0.005
+let fres 0.01
 go clean
 !! # export .fits file
 vector\fits NW14-C18O-2-1-selfcal.fits from NW14-C18O-2-1-selfcal.lmv-clean /overwrite
@@ -166,7 +166,7 @@ input uvmap
 go uvmap
 
 let niter 800
-let ares 0.005
+let fres 0.01
 input clean
 
 go clean!! # export .fits file
@@ -205,7 +205,7 @@ input uvmap
 go uvmap
 
 let niter 1000
-let ares 0.005
+let fres 0.01
 input clean
 
 go clean
@@ -246,7 +246,7 @@ let name NW14-CH3OH-8-08-7-16-selfcal
 let map_cell 0.05
 let map_size 800
 let niter 1000
-let ares 0.005
+let fres 0.01
 go uvmap
 
 go clean
@@ -272,7 +272,7 @@ let map_cell 0.03
 let map_size 800
 let map_robust 0.5
 let niter 800
-let ares 0.005
+let fres 0.01
 go uvmap
 
 go clean
@@ -301,7 +301,7 @@ input uvmap
 go uvmap
 
 let niter 500
-let ares 0.005
+let fres 0.01
 input clean
 
 go clean
@@ -325,7 +325,7 @@ vector\fits NW14-DCO+-3-2-selfcal-res.fits from NW14-DCO+-3-2-selfcal.lmv-res /o
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 read uv NW14-USB-line-selfcal
-uv_extract /frequency 230535.53 /width 100 velo
+uv_extract /frequency 230535.53 /width 160 velo
 write uv NW14-CO-2-1-selfcal
 
 modify NW14-CO-2-1-selfcal.uvt /freq CO 230538.0 !! unit MHz
@@ -340,7 +340,7 @@ input uvmap
 go uvmap
 
 let niter 1000
-let ares 0.005
+let fres 0.01
 input clean
 
 go clean
@@ -364,7 +364,7 @@ let map_robust 0.5
 !! go uvmap
 
 let niter 800
-let ares 0.005
+let fres 0.01
 go clean
 !! # export .fits file
 vector\fits NW14-CH3OH-8--1-7-0-selfcal.fits from NW14-CH3OH-8--1-7-0-selfcal.lmv-clean /overwrite
@@ -389,7 +389,7 @@ input uvmap
 go uvmap
 
 let niter 800
-let ares 0.005
+let fres 0.01
 input clean
 
 go clean
@@ -434,7 +434,7 @@ input uvmap
 go uvmap
 
 let niter 800
-let ares 0.005
+let fres 0.01
 input clean
 
 go clean
