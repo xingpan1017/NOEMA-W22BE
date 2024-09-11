@@ -29,7 +29,7 @@ input uvmap
 go uvmap
 
 let niter 600
-let ares 0.005
+let fres 0.01
 input clean
 
 go clean
@@ -58,7 +58,7 @@ input uvmap
 go uvmap
 
 let niter 600
-let ares 0.005
+let fres 0.01
 input clean
 
 go clean
@@ -87,7 +87,7 @@ input uvmap
 go uvmap
 
 let niter 600
-let ares 0.005
+let fres 0.01
 input clean
 
 go clean
@@ -118,7 +118,7 @@ input uvmap
 go uvmap
 
 let niter 600
-let ares 0.005
+let fres 0.01
 input clean
 
 go clean
@@ -147,7 +147,7 @@ input uvmap
 go uvmap
 
 let niter 600
-let ares 0.005
+let fres 0.01
 input clean
 
 go clean
@@ -175,7 +175,7 @@ input uvmap
 go uvmap
 
 let niter 600
-let ares 0.005
+let fres 0.01
 input clean
 
 go clean
@@ -203,7 +203,7 @@ input uvmap
 go uvmap
 
 let niter 600
-let ares 0.005
+let fres 0.01
 input clean
 
 go clean
@@ -244,7 +244,7 @@ input uvmap
 go uvmap
 
 let niter 600
-let ares 0.005
+let fres 0.01
 input clean
 
 go clean
@@ -335,7 +335,7 @@ input uvmap
 go uvmap
 
 let niter 600
-let ares 0.005
+let fres 0.01
 input clean
 
 go clean
@@ -442,7 +442,7 @@ input uvmap
 go uvmap
 
 let niter 600
-let ares 0.005
+let fres 0.01
 input clean
 
 go clean
@@ -489,7 +489,7 @@ input uvmap
 go uvmap
 
 let niter 600
-let ares 0.005
+let fres 0.01
 input clean
 
 go clean
