@@ -161,7 +161,7 @@ modify N63-SiO-5-4-selfcal.uvt /freq SiO5-4 217104.919 !! unit MHz
 !! # Apply selfcal and make deeper clean
 let name N63-SiO-5-4-selfcal
 let map_cell 0.03
-let map_size 1500
+let map_size 1600
 let uv_cell 7.5 3.0
 let weight_mode robust
 input uvmap
@@ -169,7 +169,7 @@ input uvmap
 go uvmap
 
 let niter 1000
-let ares 0.005
+let fres 0.01
 input clean
 
 go clean
