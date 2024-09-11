@@ -237,13 +237,13 @@ modify N30-SiO-5-4-selfcal.uvt /freq SiO5-4 217104.919 !! unit MHz
 let name N30-SiO-5-4-selfcal
 let map_cell 0.03
 let map_size 1600
-let map_robust 0.5
+let map_robust 3.0
 let weight_mode robust
 input uvmap
 
 go uvmap
 
-let niter 600
+let niter 800
 let fres 0.01
 input clean
 
