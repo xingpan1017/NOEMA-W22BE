@@ -58,7 +58,7 @@ vector\fits N68-CH3CN-12-11-selfcal-res.fits from N68-CH3CN-12-11-selfcal.lmv-re
 !!go uvmap
 
 !!let niter 800
-!!let ares 0.005
+!!let fres 0.01
 !!input clean
 
 !!go clean
@@ -85,7 +85,7 @@ vector\fits N68-CH3CN-12-11-selfcal-res.fits from N68-CH3CN-12-11-selfcal.lmv-re
 !!go uvmap
 
 !!let niter 800
-!!let ares 0.005
+!!let fres 0.01
 !!input clean
 !!go clean
 
@@ -109,7 +109,7 @@ let map_robust 0.5
 go uvmap
 
 let niter 800
-let ares 0.005
+let fres 0.01
 go clean
 !! # export .fits file
 vector\fits N68-C18O-2-1-selfcal.fits from N68-C18O-2-1-selfcal.lmv-clean /overwrite
@@ -145,7 +145,7 @@ input uvmap
 go uvmap
 
 let niter 800
-let ares 0.005
+let fres 0.01
 input clean
 
 go clean
@@ -174,7 +174,7 @@ input uvmap
 go uvmap
 
 let niter 800
-let ares 0.005
+let fres 0.01
 input clean
 
 go clean
@@ -202,7 +202,7 @@ input uvmap
 go uvmap
 
 let niter 1000
-let ares 0.005
+let fres 0.01
 input clean
 
 go clean
@@ -230,7 +230,7 @@ input uvmap
 go uvmap
 
 let niter 800
-let ares 0.005
+let fres 0.01
 input clean
 
 go clean
@@ -259,7 +259,7 @@ input uvmap
 go uvmap
 
 let niter 1000
-let ares 0.005
+let fres 0.01
 input clean
 
 go clean
@@ -284,7 +284,7 @@ let map_cell 0.05
 let map_size 800
 let map_robust 0.5
 let niter 800
-let ares 0.005
+let fres 0.01
 go uvmap
 
 go clean
@@ -322,7 +322,7 @@ input uvmap
 go uvmap
 
 let niter 1000
-let ares 0.005
+let fres 0.01
 input clean
 
 go clean
@@ -349,7 +349,7 @@ input uvmap
 go uvmap
 
 let niter 800
-let ares 0.005
+let fres 0.01
 input clean
 
 go clean
@@ -372,7 +372,7 @@ let map_size 800
 go uvmap
 
 let niter 800
-let ares 0.005
+let fres 0.01
 go clean
 !! # export .fits file
 vector\fits N68-N2D+-3-2-selfcal.fits from N68-N2D+-3-2-selfcal.lmv-clean /overwrite
