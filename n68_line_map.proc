@@ -41,11 +41,11 @@ vector\fits N68-CH3CN-12-11-selfcal-res.fits from N68-CH3CN-12-11-selfcal.lmv-re
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !! CH3CN 12-11 K=3
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!read uv N68-LSB-line-selfcal
-!!uv_extract /frequency 220712 /width 60 velo
-!!write uv N68-CH3CN-12-11-k3-selfcal
+read uv N68-LSB-line-selfcal
+uv_extract /frequency 220712 /width 60 velo
+write uv N68-CH3CN-12-11-k3-selfcal
 
-!!modify N68-CH3CN-12-11-k3-selfcal.uvt /freq CH3CN-k3 220709.0165 !! unit MHz
+modify N68-CH3CN-12-11-k3-selfcal.uvt /freq CH3CN-k3 220709.0165 !! unit MHz
 
 !! # Apply selfcal and make deeper clean
 let name N68-CH3CN-12-11-k3-selfcal
@@ -57,7 +57,7 @@ input uvmap
 go uvmap
 
 let niter 800
-let fres 0.01
+let fres 0.0125
 input clean
 
 go clean
@@ -65,6 +65,36 @@ go clean
 !! # export .fits file
 vector\fits N68-CH3CN-12-11-k3-selfcal.fits from N68-CH3CN-12-11-k3-selfcal.lmv-clean /overwrite
 vector\fits N68-CH3CN-12-11-k3-selfcal-res.fits from N68-CH3CN-12-11-k3-selfcal.lmv-res /overwrite
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! CH3CN 12-11 K=3 no selfcal
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+read uv N68-LSB-line
+uv_extract /frequency 220712 /width 60 velo
+write uv N68-CH3CN-12-11-k3
+
+modify N68-CH3CN-12-11-k3.uvt /freq CH3CN-k3 220709.0165 !! unit MHz
+
+let name N68-CH3CN-12-11-k3
+let map_cell 0.03
+let map_size 800
+let map_robust 0.05
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 800
+let fres 0.0125
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits N68-CH3CN-12-11-k3.fits from N68-CH3CN-12-11-k3.lmv-clean /overwrite
+vector\fits N68-CH3CN-12-11-k3-res.fits from N68-CH3CN-12-11-k3.lmv-res /overwrite
+
+
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !! 13CO 2-1
