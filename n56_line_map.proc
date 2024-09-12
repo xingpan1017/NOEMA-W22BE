@@ -190,8 +190,9 @@ modify N56-SiO-5-4-selfcal.uvt /freq SiO 217104.919 !! unit MHz
 !! # Apply selfcal and make deeper clean
 let name N56-SiO-5-4-selfcal
 let map_cell 0.03
-let map_size 1600
+let map_size 1000
 let map_robust 3.0
+let method multi
 let weight_mode robust
 input uvmap
 
