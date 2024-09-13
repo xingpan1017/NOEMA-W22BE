@@ -1,0 +1,144 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! SiS 12-11
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+read uv ./N30/N30-LSB-line-selfcal
+uv_extract /frequency 217818 /width 60 velo
+write uv ./N30/N30-SiS-12-11-selfcal
+
+modify ./N30/N30-SiS-12-11-selfcal.uvt /freq CH3OH-87 217817.663 !! unit MHz
+
+!! Map and clean the uv table
+let name ./N30/N30-SiS-12-11-selfcal
+let map_cell 0.03
+let map_size 800
+let map_robust 3.0
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 600
+let fres 0.01
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits ./N30/N30-SiS-12-11-selfcal.fits from ./N30/N30-SiS-12-11-selfcal.lmv-clean /overwrite
+vector\fits ./N30/N30-SiS-12-11-selfcal-res.fits from ./N30/N30-SiS-12-11-selfcal.lmv-res /overwrite
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! SiS 12-11
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+read uv ./N56/N56-LSB-line-selfcal
+uv_extract /frequency 217818 /width 60 velo
+write uv ./N56/N56-SiS-12-11-selfcal
+
+modify ./N56/N56-SiS-12-11-selfcal.uvt /freq CH3OH-87 217817.663 !! unit MHz
+
+!! Map and clean the uv table
+let name ./N56/N56-SiS-12-11-selfcal
+let map_cell 0.03
+let map_size 800
+let map_robust 3.0
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 600
+let fres 0.01
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits ./N56/N56-SiS-12-11-selfcal.fits from ./N56/N56-SiS-12-11-selfcal.lmv-clean /overwrite
+vector\fits ./N56/N56-SiS-12-11-selfcal-res.fits from ./N56/N56-SiS-12-11-selfcal.lmv-res /overwrite
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! SiS 12-11
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+read uv ./N63/N63-LSB-line-selfcal
+uv_extract /frequency 217818 /width 60 velo
+write uv ./N63/N63-SiS-12-11-selfcal
+
+modify ./N63/N63-SiS-12-11-selfcal.uvt /freq CH3OH-87 217817.663 !! unit MHz
+
+!! Map and clean the uv table
+let name ./N63/N63-SiS-12-11-selfcal
+let map_cell 0.03
+let map_size 800
+let map_robust 3.0
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 600
+let fres 0.01
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits ./N63/N63-SiS-12-11-selfcal.fits from ./N63/N63-SiS-12-11-selfcal.lmv-clean /overwrite
+vector\fits ./N63/N63-SiS-12-11-selfcal-res.fits from ./N63/N63-SiS-12-11-selfcal.lmv-res /overwrite
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! SiS 12-11
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+read uv ./N68/N68-LSB-line-selfcal
+uv_extract /frequency 217818 /width 60 velo
+write uv ./N68/N68-SiS-12-11-selfcal
+
+modify ./N68/N68-SiS-12-11-selfcal.uvt /freq CH3OH-87 217817.663 !! unit MHz
+
+!! Map and clean the uv table
+let name ./N68/N68-SiS-12-11-selfcal
+let map_cell 0.03
+let map_size 800
+let map_robust 3.0
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 600
+let fres 0.01
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits ./N68/N68-SiS-12-11-selfcal.fits from ./N68/N68-SiS-12-11-selfcal.lmv-clean /overwrite
+vector\fits ./N68/N68-SiS-12-11-selfcal-res.fits from ./N68/N68-SiS-12-11-selfcal.lmv-res /overwrite
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! SiS 12-11
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+read uv ./NW14/NW14-LSB-line-selfcal
+uv_extract /frequency 217818 /width 60 velo
+write uv ./NW14/NW14-SiS-12-11-selfcal
+
+modify ./NW14/NW14-SiS-12-11-selfcal.uvt /freq CH3OH-87 217817.663 !! unit MHz
+
+!! Map and clean the uv table
+let name ./NW14/NW14-SiS-12-11-selfcal
+let map_cell 0.03
+let map_size 800
+let map_robust 3.0
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 600
+let fres 0.01
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits ./NW14/NW14-SiS-12-11-selfcal.fits from ./NW14/NW14-SiS-12-11-selfcal.lmv-clean /overwrite
+vector\fits ./NW14/NW14-SiS-12-11-selfcal-res.fits from ./NW14/NW14-SiS-12-11-selfcal.lmv-res /overwrite
