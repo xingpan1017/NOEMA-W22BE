@@ -39,6 +39,124 @@ vector\fits N30-CH3OH-8-08-7-16-selfcal.fits from N30-CH3OH-8-08-7-16-selfcal.lm
 vector\fits N30-CH3OH-8-08-7-16-selfcal-res.fits from N30-CH3OH-8-08-7-16-selfcal.lmv-res /overwrite
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! CH3OH 4(2, 2)- 3(1, 2)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+read uv N30-LSB-line-selfcal
+uv_extract /frequency 218440 /width 60 velo
+write uv N30-CH3OH-4-22-3-12-selfcal
+
+modify N30-CH3OH-4-22-3-12-selfcal.uvt /freq CH3OH-43 218440.05 !! unit MHz
+
+!! Map and clean the uv table
+let name N30-CH3OH-4-22-3-12-selfcal
+let map_cell 0.03
+let map_size 1600
+let map_robust 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 600
+let fres 0.01
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits N30-CH3OH-4-22-3-12-selfcal.fits from N30-CH3OH-4-22-3-12-selfcal.lmv-clean /overwrite
+vector\fits N30-CH3OH-4-22-3-12-selfcal-res.fits from N30-CH3OH-4-22-3-12-selfcal.lmv-res /overwrite
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! CH3OH 6(3)-7(1)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+read uv N30-LSB-line-selfcal
+uv_extract /frequency 216857 /width 60 velo
+write uv N30-CH3OH-6-3-7-1-selfcal
+
+modify N30-CH3OH-6-3-7-1-selfcal.uvt /freq CH3OH-67 216857.91 !! unit MHz
+
+!! Map and clean the uv table
+let name N30-CH3OH-6-3-7-1-selfcal
+let map_cell 0.03
+let map_size 1600
+let map_robust 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 800
+let fres 0.01
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits N30-CH3OH-6-3-7-1-selfcal.fits from N30-CH3OH-6-3-7-1-selfcal.lmv-clean /overwrite
+vector\fits N30-CH3OH-6-3-7-1-selfcal-res.fits from N30-CH3OH-6-3-7-1-selfcal.lmv-res /overwrite
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! CH3OH 5(1)-4(2)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+read uv N30-LSB-line-selfcal
+uv_extract /frequency 216945 /width 60 velo
+write uv N30-CH3OH-5-1-4-2-selfcal
+
+modify N30-CH3OH-5-1-4-2-selfcal.uvt /freq CH3OH-54 216945.521 !! unit MHz
+
+!! Map and clean the uv table
+let name N30-CH3OH-5-1-4-2-selfcal
+let map_cell 0.03
+let map_size 1600
+let map_robust 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 800
+let fres 0.01
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits N30-CH3OH-5-1-4-2-selfcal.fits from N30-CH3OH-5-1-4-2-selfcal.lmv-clean /overwrite
+vector\fits N30-CH3OH-5-1-4-2-selfcal-res.fits from N30-CH3OH-5-1-4-2-selfcal.lmv-res /overwrite
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! CH3OH 3(-2)-2(2)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+read uv N30-LSB-line-selfcal
+uv_extract /frequency 221294 /width 60 velo
+write uv N30-CH3OH-3--2-2-2-selfcal
+
+modify N30-CH3OH-3--2-2-2-selfcal.uvt /freq CH3OH-54 221294.531 !! unit MHz
+
+!! Map and clean the uv table
+let name N30-CH3OH-3--2-2-2-selfcal
+let map_cell 0.03
+let map_size 1600
+let map_robust 0.5
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 800
+let fres 0.01
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits N30-CH3OH-3--2-2-2-selfcal.fits from N30-CH3OH-3--2-2-2-selfcal.lmv-clean /overwrite
+vector\fits N30-CH3OH-3--2-2-2-selfcal-res.fits from N30-CH3OH-3--2-2-2-selfcal.lmv-res /overwrite
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !! CH3CN 12-11 K=3
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 read uv N30-LSB-line-selfcal
@@ -407,7 +525,7 @@ vector\fits N30-CO-2-1-selfcal-res.fits from N30-CO-2-1-selfcal.lmv-res /overwri
 !! CH3OH 8--1-7-0
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 read uv N30-USB-line-selfcal
-uv_extract /frequency 229755 /width 40 velo
+uv_extract /frequency 229755 /width 60 velo
 write uv N30-CH3OH-8--1-7-0-selfcal
 
 modify N30-CH3OH-8--1-7-0-selfcal.uvt /freq CH3OH8-7 229758.756 !! unit MHz
@@ -415,9 +533,12 @@ modify N30-CH3OH-8--1-7-0-selfcal.uvt /freq CH3OH8-7 229758.756 !! unit MHz
 let name N30-CH3OH-8--1-7-0-selfcal
 let map_cell 0.05
 let map_size 1600
+let map_robust 0.5
+let weight_mode robust
 !! go uvmap
 
-let niter 600
+let niter 800
+let fres 0.01
 go clean
 !! # export .fits file
 vector\fits N30-CH3OH-8--1-7-0-selfcal.fits from N30-CH3OH-8--1-7-0-selfcal.lmv-clean /overwrite
