@@ -1,0 +1,144 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! H2CO 3-2
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+read uv ./N30/N30-LSB-line-selfcal
+uv_extract /frequency 218450 /width 1000 velo
+write uv ./N30/N30-H2CO-3-2-selfcal
+
+modify ./N30/N30-H2CO-3-2-selfcal.uvt /freq H2CO-32 218475.632 !! unit MHz
+
+!! Map and clean the uv table
+let name ./N30/N30-H2CO-3-2-selfcal
+let map_cell 0.03
+let map_size 800
+let map_robust 3.0
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 600
+let fres 0.01
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits ./N30/N30-H2CO-3-2-selfcal.fits from ./N30/N30-H2CO-3-2-selfcal.lmv-clean /overwrite
+vector\fits ./N30/N30-H2CO-3-2-selfcal-res.fits from ./N30/N30-H2CO-3-2-selfcal.lmv-res /overwrite
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! H2CO 3-2
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+read uv ./N56/N56-LSB-line-selfcal
+uv_extract /frequency 218450 /width 1000 velo
+write uv ./N56/N56-H2CO-3-2-selfcal
+
+modify ./N56/N56-H2CO-3-2-selfcal.uvt /freq CH3OH-87 218475.632 !! unit MHz
+
+!! Map and clean the uv table
+let name ./N56/N56-H2CO-3-2-selfcal
+let map_cell 0.03
+let map_size 800
+let map_robust 3.0
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 600
+let fres 0.01
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits ./N56/N56-H2CO-3-2-selfcal.fits from ./N56/N56-H2CO-3-2-selfcal.lmv-clean /overwrite
+vector\fits ./N56/N56-H2CO-3-2-selfcal-res.fits from ./N56/N56-H2CO-3-2-selfcal.lmv-res /overwrite
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! H2CO 3-2
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+read uv ./N63/N63-LSB-line-selfcal
+uv_extract /frequency 218450 /width 1000 velo
+write uv ./N63/N63-H2CO-3-2-selfcal
+
+modify ./N63/N63-H2CO-3-2-selfcal.uvt /freq CH3OH-87 218475.632 !! unit MHz
+
+!! Map and clean the uv table
+let name ./N63/N63-H2CO-3-2-selfcal
+let map_cell 0.03
+let map_size 800
+let map_robust 3.0
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 600
+let fres 0.01
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits ./N63/N63-H2CO-3-2-selfcal.fits from ./N63/N63-H2CO-3-2-selfcal.lmv-clean /overwrite
+vector\fits ./N63/N63-H2CO-3-2-selfcal-res.fits from ./N63/N63-H2CO-3-2-selfcal.lmv-res /overwrite
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! H2CO 3-2
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+read uv ./N68/N68-LSB-line-selfcal
+uv_extract /frequency 218450 /width 1000 velo
+write uv ./N68/N68-H2CO-3-2-selfcal
+
+modify ./N68/N68-H2CO-3-2-selfcal.uvt /freq CH3OH-87 218475.632 !! unit MHz
+
+!! Map and clean the uv table
+let name ./N68/N68-H2CO-3-2-selfcal
+let map_cell 0.03
+let map_size 800
+let map_robust 3.0
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 600
+let fres 0.01
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits ./N68/N68-H2CO-3-2-selfcal.fits from ./N68/N68-H2CO-3-2-selfcal.lmv-clean /overwrite
+vector\fits ./N68/N68-H2CO-3-2-selfcal-res.fits from ./N68/N68-H2CO-3-2-selfcal.lmv-res /overwrite
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! H2CO 3-2
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+read uv ./NW14/NW14-LSB-line-selfcal
+uv_extract /frequency 218450 /width 1000 velo
+write uv ./NW14/NW14-H2CO-3-2-selfcal
+
+modify ./NW14/NW14-H2CO-3-2-selfcal.uvt /freq CH3OH-87 218475.632 !! unit MHz
+
+!! Map and clean the uv table
+let name ./NW14/NW14-H2CO-3-2-selfcal
+let map_cell 0.03
+let map_size 800
+let map_robust 3.0
+let weight_mode robust
+input uvmap
+
+go uvmap
+
+let niter 600
+let fres 0.01
+input clean
+
+go clean
+
+!! # export .fits file
+vector\fits ./NW14/NW14-H2CO-3-2-selfcal.fits from ./NW14/NW14-H2CO-3-2-selfcal.lmv-clean /overwrite
+vector\fits ./NW14/NW14-H2CO-3-2-selfcal-res.fits from ./NW14/NW14-H2CO-3-2-selfcal.lmv-res /overwrite
