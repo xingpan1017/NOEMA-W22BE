@@ -1,14 +1,14 @@
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!! CH3OH 8(0,8)-7(1,6)
+!! CH3OH 8(-1)-7(0)
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 read uv ./N30/N30-LSB-line-selfcal
-uv_extract /frequency 217818 /width 60 velo
-write uv ./N30/N30-CH3OH-8-08-7-16
+uv_extract /frequency 229755 /width 60 velo
+write uv ./N30/N30-CH3OH-8--1-7-0-selfcal
 
-modify ./N30/N30-CH3OH-8-08-7-16.uvt /freq CH3OH-87 217817.663 !! unit MHz
+modify ./N30/N30-CH3OH-8--1-7-0-selfcal.uvt /freq CH3OH-87 229758.756 !! unit MHz
 
 !! Map and clean the uv table
-let name ./N30/N30-CH3OH-8-08-7-16
+let name ./N30/N30-CH3OH-8--1-7-0-selfcal
 let map_cell 0.03
 let map_size 800
 let map_robust 3.0
@@ -24,20 +24,20 @@ input clean
 go clean
 
 !! # export .fits file
-vector\fits ./N30/N30-CH3OH-8-08-7-16.fits from ./N30/N30-CH3OH-8-08-7-16.lmv-clean /overwrite
-vector\fits ./N30/N30-CH3OH-8-08-7-16-res.fits from ./N30/N30-CH3OH-8-08-7-16.lmv-res /overwrite
+vector\fits ./N30/N30-CH3OH-8--1-7-0-selfcal.fits from ./N30/N30-CH3OH-8--1-7-0-selfcal.lmv-clean /overwrite
+vector\fits ./N30/N30-CH3OH-8--1-7-0-selfcal-res.fits from ./N30/N30-CH3OH-8--1-7-0-selfcal.lmv-res /overwrite
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!! CH3OH 8(0,8)-7(1,6)
+!! CH3OH 8(-1)-7(0)
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 read uv ./N56/N56-LSB-line-selfcal
-uv_extract /frequency 217818 /width 60 velo
-write uv ./N56/N56-CH3OH-8-08-7-16
+uv_extract /frequency 229755 /width 60 velo
+write uv ./N56/N56-CH3OH-8--1-7-0-selfcal
 
-modify ./N56/N56-CH3OH-8-08-7-16.uvt /freq CH3OH-87 217817.663 !! unit MHz
+modify ./N56/N56-CH3OH-8--1-7-0-selfcal.uvt /freq CH3OH-87 229758.756 !! unit MHz
 
 !! Map and clean the uv table
-let name ./N56/N56-CH3OH-8-08-7-16
+let name ./N56/N56-CH3OH-8--1-7-0-selfcal
 let map_cell 0.03
 let map_size 800
 let map_robust 3.0
@@ -53,20 +53,20 @@ input clean
 go clean
 
 !! # export .fits file
-vector\fits ./N56/N56-CH3OH-8-08-7-16.fits from ./N56/N56-CH3OH-8-08-7-16.lmv-clean /overwrite
-vector\fits ./N56/N56-CH3OH-8-08-7-16-res.fits from ./N56/N56-CH3OH-8-08-7-16.lmv-res /overwrite
+vector\fits ./N56/N56-CH3OH-8--1-7-0-selfcal.fits from ./N56/N56-CH3OH-8--1-7-0-selfcal.lmv-clean /overwrite
+vector\fits ./N56/N56-CH3OH-8--1-7-0-selfcal-res.fits from ./N56/N56-CH3OH-8--1-7-0-selfcal.lmv-res /overwrite
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!! CH3OH 8(0,8)-7(1,6)
+!! CH3OH 8(-1)-7(0)
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 read uv ./N63/N63-LSB-line-selfcal
-uv_extract /frequency 217818 /width 60 velo
-write uv ./N63/N63-CH3OH-8-08-7-16
+uv_extract /frequency 229755 /width 60 velo
+write uv ./N63/N63-CH3OH-8--1-7-0-selfcal
 
-modify ./N63/N63-CH3OH-8-08-7-16.uvt /freq CH3OH-87 217817.663 !! unit MHz
+modify ./N63/N63-CH3OH-8--1-7-0-selfcal.uvt /freq CH3OH-87 229758.756 !! unit MHz
 
 !! Map and clean the uv table
-let name ./N63/N63-CH3OH-8-08-7-16
+let name ./N63/N63-CH3OH-8--1-7-0-selfcal
 let map_cell 0.03
 let map_size 800
 let map_robust 3.0
@@ -82,20 +82,20 @@ input clean
 go clean
 
 !! # export .fits file
-vector\fits ./N63/N63-CH3OH-8-08-7-16.fits from ./N63/N63-CH3OH-8-08-7-16.lmv-clean /overwrite
-vector\fits ./N63/N63-CH3OH-8-08-7-16-res.fits from ./N63/N63-CH3OH-8-08-7-16.lmv-res /overwrite
+vector\fits ./N63/N63-CH3OH-8--1-7-0-selfcal.fits from ./N63/N63-CH3OH-8--1-7-0-selfcal.lmv-clean /overwrite
+vector\fits ./N63/N63-CH3OH-8--1-7-0-selfcal-res.fits from ./N63/N63-CH3OH-8--1-7-0-selfcal.lmv-res /overwrite
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!! CH3OH 8(0,8)-7(1,6)
+!! CH3OH 8(-1)-7(0)
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 read uv ./N68/N68-LSB-line-selfcal
-uv_extract /frequency 217818 /width 60 velo
-write uv ./N68/N68-CH3OH-8-08-7-16
+uv_extract /frequency 229755 /width 60 velo
+write uv ./N68/N68-CH3OH-8--1-7-0-selfcal
 
-modify ./N68/N68-CH3OH-8-08-7-16.uvt /freq CH3OH-87 217817.663 !! unit MHz
+modify ./N68/N68-CH3OH-8--1-7-0-selfcal.uvt /freq CH3OH-87 229758.756 !! unit MHz
 
 !! Map and clean the uv table
-let name ./N68/N68-CH3OH-8-08-7-16
+let name ./N68/N68-CH3OH-8--1-7-0-selfcal
 let map_cell 0.03
 let map_size 800
 let map_robust 3.0
@@ -111,20 +111,20 @@ input clean
 go clean
 
 !! # export .fits file
-vector\fits ./N68/N68-CH3OH-8-08-7-16.fits from ./N68/N68-CH3OH-8-08-7-16.lmv-clean /overwrite
-vector\fits ./N68/N68-CH3OH-8-08-7-16-res.fits from ./N68/N68-CH3OH-8-08-7-16.lmv-res /overwrite
+vector\fits ./N68/N68-CH3OH-8--1-7-0-selfcal.fits from ./N68/N68-CH3OH-8--1-7-0-selfcal.lmv-clean /overwrite
+vector\fits ./N68/N68-CH3OH-8--1-7-0-selfcal-res.fits from ./N68/N68-CH3OH-8--1-7-0-selfcal.lmv-res /overwrite
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!! CH3OH 8(0,8)-7(1,6)
+!! CH3OH 8(-1)-7(0)
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 read uv ./NW14/NW14-LSB-line-selfcal
-uv_extract /frequency 217818 /width 60 velo
-write uv ./NW14/NW14-CH3OH-8-08-7-16
+uv_extract /frequency 229755 /width 60 velo
+write uv ./NW14/NW14-CH3OH-8--1-7-0-selfcal
 
-modify ./NW14/NW14-CH3OH-8-08-7-16.uvt /freq CH3OH-87 217817.663 !! unit MHz
+modify ./NW14/NW14-CH3OH-8--1-7-0-selfcal.uvt /freq CH3OH-87 229758.756 !! unit MHz
 
 !! Map and clean the uv table
-let name ./NW14/NW14-CH3OH-8-08-7-16
+let name ./NW14/NW14-CH3OH-8--1-7-0-selfcal
 let map_cell 0.03
 let map_size 800
 let map_robust 3.0
@@ -140,5 +140,5 @@ input clean
 go clean
 
 !! # export .fits file
-vector\fits ./NW14/NW14-CH3OH-8-08-7-16.fits from ./NW14/NW14-CH3OH-8-08-7-16.lmv-clean /overwrite
-vector\fits ./NW14/NW14-CH3OH-8-08-7-16-res.fits from ./NW14/NW14-CH3OH-8-08-7-16.lmv-res /overwrite
+vector\fits ./NW14/NW14-CH3OH-8--1-7-0-selfcal.fits from ./NW14/NW14-CH3OH-8--1-7-0-selfcal.lmv-clean /overwrite
+vector\fits ./NW14/NW14-CH3OH-8--1-7-0-selfcal-res.fits from ./NW14/NW14-CH3OH-8--1-7-0-selfcal.lmv-res /overwrite
