@@ -1,0 +1,15 @@
+!! Set observatory
+observatory noema
+
+!! Provide source information
+source DR21SF eq 2000 20:39:00.325 +42:22:11.977 LSR 10
+
+!! Lines from the catalog will be indicated by a gaussian (width=20 MHz)
+set lines gauss 20
+
+tuning 86 LSB 8000 /zoom !! tunning 86 GHz
+!! select a/some basebands and assgin a correlator node
+baseband /mode 2000 62.5
+
+spw /frequency 85.926278 0.3 !! NH2D 1(1,1)-1(0,1)
+spw /frequency 86.754288 0.3 !! H13CO+ 1-0
