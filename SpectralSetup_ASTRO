@@ -5,29 +5,45 @@ observatory noema
 source DR21SF eq 2000 20:39:00.325 +42:22:11.977 LSR 0
 
 !! Lines from the catalog will be indicated by a gaussian (width=0.25 MHz)
-set lines gauss 0.25
+set lines gauss 5
 
-tuning 85.8 LSB 7500 /zoom !! tunning 86 GHz
+tuning 73.9 LSB 8000 /zoom !! tunning 86 GHz
 !! select a/some basebands and assgin a correlator node
 baseband /mode 2000 62.5
 
 !!baseband lo !! select lsb outer sideband
-spw /frequency 85.926278 0.05 !! NH2D 1(1,1)-1(0,1) in unit GHz
+spw /frequency 72.07 0.10 !! DCO+ 1-0 & CCD in unit GHz
+spw /frequency 72.415 0.05 !! DCN 1-0 in unit GHz
+spw /frequency 72.770 0.10 !! SO2&HC3N&H2CO in unit GHz
+spw /frequency 73.585 0.20 !! CH3CN 4-3 k-ladder
 
 !!baseband li !! select lsb inner sideband
-spw /frequency 86.82 0.15 !! H13CO+ 1-0 & SiO 2-1
-spw /frequency 87.09085 0.05 !! HN13C 1-0
-spw /frequency 88.6316023 0.05 !! HCN 1-0
-spw /frequency 89.1885247 0.05 !! HCO+ 1-0
+spw /frequency 74.645 0.05 !! H44alpha
+spw /frequency 76.306 0.05 !! DNC 1-0
+spw /frequency 76.510 0.05 !! CH3OH 5-4 E
+spw /frequency 77.1092433 0.05 !! N2D+ 1-0
 
 !!baseband ui !! select usb inner sideband
-spw /frequency 97.9809533 0.05 !! CS 2-1
+spw /frequency 85.926278 0.04 !! NH2D 1(1,1)-1(0,1) in unit GHz
+spw /frequency 86.340 0.04 !! H13CN 1-0
+spw /frequency 86.815 0.11 !! H13CO+ 1-0 & SiO 2-1
+spw /frequency 87.09085 0.03 !! HN13C 1-0
+!!spw /frequency 87.329 0.06 !! CCH 1-0 hyperfine structure necessary?
+spw /frequency 87.9 0.05 !! HNCO 4-3 & HC3N
+spw /frequency 88.6316023 0.04 !! HCN 1-0
+spw /frequency 89.1885247 0.03 !! HCO+ 1-0
 
 !!baseband uo !! select usb outer sideband
-spw /frequency 104.7114035 0.05 !! 13C18O 1-0
+spw /frequency 90.664 0.05 !! HNC 1-0
+spw /frequency 90.979 0.05 !! HC3N 10-9
+spw /frequency 91.975  0.4 !! CH3CN 5-4 & H41alpha
+spw /frequency 92.494 0.05 !! 13CS 2-1
+spw /frequency 93.174 0.05 !! N2H+ 1-0
 
 plot
 
+!!spw /frequency 97.9809533 0.05 !! CS 2-1
+!!spw /frequency 104.7114035 0.05 !! 13C18O 1-0
 !! spw /frequency 110.2013543 0.2 !! 13CO 1-0 can not be covered
 !! spw /frequency 109.7821734 0.2 !! C18O 1-0 can not be covered
 !! spw /frequency 93.1733977 0.2 !! N2H+ 1-0 can not be covered
